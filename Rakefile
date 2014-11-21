@@ -17,11 +17,11 @@ namespace :build do
     end
 
     task :css => :src do
-      sh "cp -r #{ @source }/css #{ @theme }/stylesheets"
+      sh "cp -r #{ @source }/css/* #{ @theme }/stylesheets"
     end
 
     task :js => :src do
-      sh "cp -r #{ @source }/js #{ @theme }/javascripts"
+      sh "cp #{ @source }/js/* #{ @theme }/javascripts"
     end
 
     task :fonts => :src do
