@@ -1,0 +1,29 @@
+title : Site Title
+tagline: Site Tagline
+author :
+  name : First-name Last-name
+  email : blah@email.test
+  github : username
+  twitter : username
+  feedburner : feedname
+
+navigation :
+  - archive
+  - tags
+  - categories
+  - pages
+  - about
+
+languages :
+  -
+    display : 日本語
+    flag : jp.png
+    locale : JA
+  -
+    display : Українська
+    flag : ua.png
+    locale : UA
+  -
+    display : English
+    flag : us.png
+    locale : EN
