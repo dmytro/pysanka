@@ -4,5 +4,5 @@
 "theme-bootstrap-2" :
   "use" : "ignore"
 
-less:
+src:
   use: ignore
