@@ -1,6 +1,4 @@
 ---
-"theme-pysanka" :
-  "use" : "theme"
 "theme-bootstrap-2" :
   "use" : "ignore"
 
