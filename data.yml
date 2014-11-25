@@ -1,0 +1,46 @@
+title : Site Title
+tagline: Site Tagline
+author :
+  name : First-name Last-name
+  email : blah@email.test
+  github : username
+  twitter : username
+  feedburner : feedname
+
+navigation :
+  - archive
+  - tags
+  - categories
+  - pages
+  - about
+
+languages :
+  -
+    display : 日本語
+    flag : jp.png
+    locale : JA
+  -
+    display : Українська
+    flag : ua.png
+    locale : UA
+  -
+    display : English
+    flag : us.png
+    locale : EN
+
+slides :
+  -
+    bg : bg6
+    title: Писанка 5
+    subtitle: Зроблена найкращою с світі Наталею
+    image: pysanka-5.png
+  -
+    bg: bg7
+    title: Писанка 2
+    subtitle: Слава Україні!
+    image: pysanka-2.png
+  -
+    bg: bg8
+    title: Писанка 1
+    subtitle: Героям Слава! І сала!
+    image: pysanka-1.png

@@ -1,0 +1,17 @@
+<!-- Homepage Slider -->
+<div class="homepage-slider">
+	<div id="sequence">
+		<ul class="sequence-canvas">
+              {{# data.slides }}
+                    {{> slide }}
+              {{/ data.slides }}
+		<div class="sequence-pagination-wrapper">
+			<ul class="sequence-pagination">
+              {{# data.slides }}
+                    <li>.</li>
+              {{/ data.slides }}
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- End Homepage Slider -->
