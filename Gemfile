@@ -1,4 +1,13 @@
-source "https://rubygems.org"
-gem 'ruhoh', "~> 2"
-gem "less", "~> 2.6.0"
+source 'http://rubygems.org'
+
+gem 'middleman', '~>3.2.0'
+
+gem 'middleman-livereload', '~> 3.1.0'
+gem 'middleman-sprockets', '~> 3.2.0'
+
+#gem 'capistrano', '~> 3.0.1'
+gem 'font-awesome-middleman'
+
+# speed up minifying processes
 gem 'therubyracer'
+gem 'oj'
