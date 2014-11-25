@@ -1,0 +1,26 @@
+| --- layout : default --- 
+.row-fluid
+  .span12
+    |  {{#collection.paginator}} 
+    .{{.collection.resource_name}}
+      h3.title
+        a[href="{{url}}"]
+          | {{title}}
+        span.date
+          | {{ date }}
+      |  {{{ summary }}} 
+      .more
+        a.btn.btn-small[href="{{url}}"]
+          | read more..
+    |  {{/collection.paginator}} 
+    .pagination
+      ul
+        |  {{#collection.paginator_navigation}} {{#is_active_page}} 
+        li.active
+          a[href="{{url}}"]
+            | {{name}}
+        |  {{/is_active_page}} {{^is_active_page}} 
+        li
+          a[href="{{url}}"]
+            | {{name}}
+        |  {{/is_active_page}} {{/collection.paginator_navigation}} 

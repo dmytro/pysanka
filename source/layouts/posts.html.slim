@@ -1,0 +1,53 @@
+| asdfasfd --- layout : default --- {{# page.author?to_data }} 
+strong
+  | {{ name }}
+p
+  | {{ bio }}
+|  {{/ page.author?to_data }} 
+.page-header
+  h1
+    | {{ page.title }} {{# page.tagline }} 
+    small
+      | {{ . }}
+    | {{/ page.tagline }}
+.row-fluid.post-full
+  .span12
+    .date
+      span
+        | {{page.date}}
+    .content
+      |  {{{ page.content }}} 
+    ul.tag_box.inline
+      li
+        i.icon-folder-open
+      |  {{# page.categories }} {{> categories_list }} {{/ page.categories }} 
+    ul.tag_box.inline
+      li
+        i.icon-tags
+      |  {{# page.tags }} {{> tags_list }} {{/ page.tags }} 
+    hr
+    .pagination
+      ul
+        |  {{# page.previous }} 
+        li.prev
+          a[href="{{ url }}" title="{{ title }}"]
+            | ← Previous
+        |  {{/ page.previous }} {{^ page.previous }} 
+        li.prev.disabled
+          a
+            | ← Previous
+        |  {{/ page.previous }} 
+        li
+          a[href="{{urls.base_path}}archive"]
+            | Archive
+        |  {{# page.next }} 
+        li.next
+          a[href="{{ url }}" title="{{ title }}"]
+            | Next →
+        |  {{/ page.next }} {{^ page.next }} 
+        li.next.disabled
+          a
+            | Next →
+          |  {{/ page.next }} 
+    hr
+    |  {{{ widgets.comments }}} 
