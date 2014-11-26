@@ -1,8 +1,10 @@
-.dropdown.choose-country
-  a[class="#" data-toggle="dropdown" href="#"]
-    = image_tag "flags/gb.png"
-  ul.dropdown-menu[role="menu"]
-    - data.languages.each do |lang|
-      li[role="menuitem"]
-        a[href="#"]
-          = image_tag "flags/#{lang.flag}"
+li
+  .dropdown.choose-country
+    a[class="#" data-toggle="dropdown" href="#"]
+      = image_tag "flags/gb.png"
+    ul.dropdown-menu[role="menu"]
+      - data.languages.each do |lang|
+        li[role="menuitem"]
+          a[href="#"]
+            = image_tag "flags/#{lang.flag}", alt: "#{lang[:display]}"
+            =< lang[:display]
