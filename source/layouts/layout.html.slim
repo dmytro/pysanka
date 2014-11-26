@@ -3,12 +3,11 @@ html[lang="en"]
   head
     meta[charset="utf-8"]
     title
-      = page.title
+      = data.page.title
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
-    |  {{# page.description }}
-    meta[name="description" content="{{ . }}"]
-    |  {{/ page.description }}
-    meta[name="author" content="{{ data.author.name }}"]
+    meta[name="description" content="#{data.page.description}"]
+    meta[name="author" content="{# data.author.name }"]
+
      = stylesheet_link_tag "bootstrap.min.css", "icomoon-social.css", "leaflet.css", "main.css", "material-wfont.min.css", "material.min.css", "ripples.min.css"
   body
     = partial :navigation_and_logo

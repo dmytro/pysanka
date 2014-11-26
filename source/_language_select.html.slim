@@ -1,11 +1,8 @@
 .dropdown.choose-country
-  a.#[data-toggle="dropdown" href="#"]
-    img[src="{{urls.media}}/flags/gb.png" alt="Great Britain"]
-    |  UK
+  a[class="#" data-toggle="dropdown" href="#"]
+    = image_tag "flags/gb.png"
   ul.dropdown-menu[role="menu"]
-    |  {{# data.languages }} 
-    li[role="menuitem"]
-      a[href="#"]
-        img[src="{{urls.media}}/flags/{{flag}}" alt="{{ display }}"]
-        |  {{ locale }}
-    |  {{/ data.languages }} 
+    - data.languages.each do |lang|
+      li[role="menuitem"]
+        a[href="#"]
+          = image_tag "flags/#{lang.flag}"

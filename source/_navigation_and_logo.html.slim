@@ -1,9 +1,9 @@
 .mainmenu-wrapper.well
   .container
     nav#mainmenu.mainmenu
-      |  {{> menuextra }} 
+      = partial :menu_extra
       ul
-        | {{> logo }} 
+        = partial :logo
         li.active
           a[href="index.html"]
             | Home

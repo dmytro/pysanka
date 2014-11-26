@@ -1,0 +1,13 @@
+---
+-
+  display : 日本語
+  flag : jp.png
+  locale : JA
+-
+  display : Українська
+  flag : ua.png
+  locale : UA
+-
+  display : English
+  flag : us.png
+  locale : EN
