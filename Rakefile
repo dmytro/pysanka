@@ -1,12 +1,20 @@
 namespace :build do
 
-  desc "mPurpose: Build CSS from LESS"
-  task :css => :material do
-    sh "lessc src/less/main.less > stylesheets/main.css"
-  end
+  # desc "mPurpose: Build CSS from LESS"
+  # task :css => :material do
+  #   sh "lessc src/less/main.less > stylesheets/main.css"
+  # end
 
   desc "Copy bootstrap material CSS to project"
-  task :material => ["build:material:css", "build:material:js", "build:material:fonts" ] do
+  task :material => ["build:material:js", "build:material:fonts" ] do
+  end
+
+  desc "Copy mPurpose's LESS to source"
+  task :mpurpose do
+    %w{ components general lesshat variables }.each do |less|
+      sh "cp src/less/#{less}.less source/stylesheets/"
+    end
+    sh "cp src/less/main.less source/stylesheets/main.css.less"
   end
 
   namespace :material do
