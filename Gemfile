@@ -7,6 +7,8 @@ gem 'middleman-sprockets', '~> 3.2.0'
 gem "html2slim"
 gem "slim"
 
+gem "bootstrap-sass", :require => false
+
 gem "redcarpet"
 
 #gem 'capistrano', '~> 3.0.1'
