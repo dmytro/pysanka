@@ -19,7 +19,6 @@ gem 'guard'
 gem 'foreman'
 gem "redcarpet"
 
-#gem 'capistrano', '~> 3.0.1'
 gem 'font-awesome-middleman'
 
 # speed up minifying processes
