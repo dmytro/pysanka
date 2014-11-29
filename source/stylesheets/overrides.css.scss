@@ -1,0 +1,23 @@
+// components.less
+.mainmenu li.logo-wrapper a{
+  padding-right: 10px;
+  margin-right: 10px;
+}
+
+.mainmenu-wrapper.well {
+    padding-top: 0px;
+    padding-right: 0px;
+}
+
+// 2148
+.mainmenu {
+	/* first level ul style */
+	>ul, .mainmenu-submenu-inner {
+		>li {
+			>a{
+				padding: .2em 1.2em .2em 1.2em;
+				margin-right: .5em;
+            }
+        }
+    }
+}
