@@ -9,3 +9,6 @@
 //= require modernizr-2.6.2-respond-1.1.0.min
 //= require material.min
 //= require ripples.min
+$(document).ready(function() {
+    $.material.init();
+});

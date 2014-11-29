@@ -1,11 +1,12 @@
 /*
 
-*= require bootstrap.min
 *= require icomoon-social
 *= require leaflet
 *= require main
+*= require bootstrap.min
 *= require material-wfont.min
 *= require material.min
 *= require ripples.min
+*= require overrides
 
 */
