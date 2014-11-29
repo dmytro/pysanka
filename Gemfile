@@ -11,6 +11,8 @@ gem 'less'
 gem 'therubyracer'
 gem "bootstrap-sass", :require => false
 
+gem 'guard'
+gem 'foreman'
 gem "redcarpet"
 
 #gem 'capistrano', '~> 3.0.1'
