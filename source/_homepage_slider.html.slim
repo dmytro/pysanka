@@ -5,7 +5,7 @@
         li[class="#{slide.bg}"]
           h2.title= slide.title
           h3.subtitle= slide.subtitle
-          = image_tag "homepage-slider/#{slide.image}"
+          = image_tag "homepage-slider/#{slide.image}", class: "slide-img"
     .sequence-pagination-wrapper
       ul.sequence-pagination
         - data.slides.each do |slide|
