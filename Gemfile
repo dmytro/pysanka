@@ -8,8 +8,12 @@ gem "html2slim"
 gem "slim"
 
 gem 'less'
+gem 'sass'
+gem 'compass', '~>1.x.x'
+
 gem 'therubyracer'
 gem "bootstrap-sass", :require => false
+
 
 gem 'guard'
 gem 'foreman'
