@@ -42,6 +42,7 @@ configure :build do
   #activate :minify_html
   activate :asset_hash
   #activate :gzip
+  ignore "*.less"
 
   if ENV['CDN_HOST']
     activate :asset_host
