@@ -25,9 +25,12 @@ class Showcase < Middleman::Extension
         link_to: "/"
       }
     end
+
     def items
       dirs.map do |dir|
+
         item = ::Showcase::Item.new(dir)
+
         OpenStruct.new({
           dir: dir,
             images: item.images,
