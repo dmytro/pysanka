@@ -1,0 +1,11 @@
+.section.section-breadcrumbs
+  .section
+    .container
+      .row
+        .col-md-12
+          h1 Писанки
+.section
+  .container
+    .row
+      - showcase(12).each do |item|
+        = partial "widgets/showbox", locals: { item: item }
