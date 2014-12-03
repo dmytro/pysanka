@@ -7,3 +7,17 @@
         max-height: 350px;
     }
 }
+
+.choose-country {
+    white-space: nowrap;
+    a {
+        font-size: 90%;
+        img {
+            margin-right: 5px;
+            float: left;
+        }
+        .language {
+            line-height: 11px;
+        }
+    }
+}

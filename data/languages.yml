@@ -1,13 +1,13 @@
 ---
--
-  display : 日本語
+ja:
+  display_name : 日本語
   flag : jp.png
-  locale : JA
--
-  display : Українська
+  locale : ja
+uk:
+  display_name : Українська
   flag : ua.png
-  locale : UA
--
-  display : English
+  locale : uk
+en:
+  display_name : English
   flag : us.png
-  locale : EN
+  locale : en
