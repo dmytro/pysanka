@@ -29,6 +29,9 @@ configure :development do
   activate :relative_assets
 end
 
+# --------------------------------------------
+# Localization helpers
+# --------------------------------------------
 helpers do
   def current_language
     data.languages[I18n.locale]
@@ -46,6 +49,11 @@ helpers do
     else
       "#{locale}/#{current_without_locale}"
     end
+  end
+
+  # Translate strings that are not part of /locale/ directory.
+  def l(key)
+    key.is_a?(Hash) ? key[I18n.locale.to_s] : key
   end
 end
 

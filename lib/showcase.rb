@@ -22,7 +22,12 @@ class Showcase < Middleman::Extension
         title: "Title",
         subtitle: "Sub Title",
         summary: "Що небудь про писанку...",
-        link_to: "/"
+        link_to: "/",
+        "Read more" => {
+          uk: "Читати далі",
+          ja: "続きを読む",
+          en: "Read more"
+          }
       }
     end
 

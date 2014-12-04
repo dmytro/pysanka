@@ -1,10 +1,25 @@
 ---
 -
   href: index.html
-  title: Home
+  title:
+    en: Home
+    uk: Повернутися
+    ja: ホーム
 -
-  title: Pysanka
+  title:
+    en: Events
+    uk: Події
+    ja: イベント
+  href: "index.html#events"
+-
+  title:
+    en: Products
+    uk: Продукти
+    ja: プロダクト
   href: "index.html#pysanka"
 -
-  title: About
-  href: "#about"
+  title:
+    en:  About
+    uk: Про нас
+    ja: 私たちに関しては
+  href: "index.html#about"
