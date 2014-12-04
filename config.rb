@@ -87,6 +87,8 @@ configure :build do
   activate :asset_hash
   #activate :gzip
   ignore 'product.html'
+  ignore(/Icon\r$/)
+  ignore(/^assets.*\.yml/)
 
   # if ENV['CDN_HOST']
   #   activate :asset_host
