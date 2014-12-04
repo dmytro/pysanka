@@ -66,14 +66,25 @@ end
 # Showcase is Pysanka products lister
 # --------------------------------------------
 activate :showcase
-# showcase_dirs.each do |product|
-#   proxy "#{product}.html", "product.html", locale: :en do
-#     # ::I18n.locale = :en
-#     # @lang         = :en
-
-#     @path = product
-#   end
+Showcase::Items.new.basenames.each do |product|
 # end
+# showcase_dirs.each do |product|
+#%w{ 1 2 3 45 }.each do |product|
+  proxy "/ua/products/#{product}.html", "product.html", ignore: true do
+    ::I18n.locale = :uk
+    @lang = :uk
+  end
+
+  proxy "/ja/products/#{product}.html", "product.html", ignore: true do
+    ::I18n.locale = :ja
+    @lang = :ja
+  end
+
+  proxy "products/#{product}.html", "product.html", ignore: true do
+    ::I18n.locale = :en
+    @lang = :en
+  end
+end
 
 configure :build do
   # activate :directory_indexes
@@ -89,6 +100,8 @@ configure :build do
   ignore 'product.html'
   ignore(/Icon\r$/)
   ignore(/^assets.*\.yml/)
+  ignore(/^assets\/stylesheets\/(?!all).*\.css/)
+  ignore(/^assets\/javascripts\/(?!all).*\.js/)
 
   # if ENV['CDN_HOST']
   #   activate :asset_host
