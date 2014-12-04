@@ -12,7 +12,7 @@ module ::Guard
     end
 
     def run_on_changes(paths)
-      dest_path = "source/stylesheets/main.css.less"
+      dest_path = "source/assets/stylesheets/main.css.less"
       return if paths == [dest_path]
 
       next_number = if File.exists?(dest_path)
@@ -24,7 +24,7 @@ module ::Guard
 
       next_number = next_number.to_i
 
-      template = File.read("source/stylesheets/main-template.css.less")
+      template = File.read("source/assets/less/main-template.css.less")
 
       File.open(dest_path, 'w') do |file|
         file.write(template.gsub(%r{// (\d+)}) { "// #{next_number}"})
@@ -34,5 +34,5 @@ module ::Guard
 end
 
 guard :less_watcher do
-  watch(%r{^source/stylesheets/(.+)\.less$})
+  watch(%r{^source/**/(.+)\.less$})
 end

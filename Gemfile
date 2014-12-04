@@ -7,12 +7,12 @@ gem 'middleman-sprockets', '~> 3.2.0'
 gem "html2slim"
 gem "slim"
 
-gem 'less'
-gem 'sass'
+gem 'sprockets-less'
+gem 'sprockets-sass'
 gem 'compass', '~>1.x.x'
 
 gem 'therubyracer'
-gem "bootstrap-sass", :require => false
+# gem "bootstrap-sass", :require => false
 
 
 gem 'guard'

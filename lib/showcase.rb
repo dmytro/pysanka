@@ -2,6 +2,7 @@
 class Showcase < Middleman::Extension
   def initialize(app, options_hash={}, &block)
     super
+    app.set :showcase_dirs, Items.new.basenames
   end
 
   attr_reader :path
@@ -15,6 +16,10 @@ class Showcase < Middleman::Extension
 
     def dirs
       Dir.glob("#{path}/*").select { |fn| File.directory?(fn) }
+    end
+
+    def basenames
+      dirs.map { |f| File.basename f }
     end
 
     def defaults
