@@ -12,7 +12,7 @@ module ::Guard
     end
 
     def run_on_changes(paths)
-      dest_path = "source/assets/stylesheets/main.css.less"
+      dest_path = "source/assets/less/main.css.less"
       return if paths == [dest_path]
 
       next_number = if File.exists?(dest_path)
@@ -29,6 +29,7 @@ module ::Guard
       File.open(dest_path, 'w') do |file|
         file.write(template.gsub(%r{// (\d+)}) { "// #{next_number}"})
       end
+      # TODO %x{cd source/assets/less && lessc main.css.less > ../stylesheets/main.css}
     end
   end
 end
