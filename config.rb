@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'slim'
 Slim::Engine.disable_option_validator!
 
@@ -66,21 +67,24 @@ end
 # Showcase is Pysanka products lister
 # --------------------------------------------
 activate :showcase
-Showcase::Items.new.basenames.each do |product|
-# end
-# showcase_dirs.each do |product|
-#%w{ 1 2 3 45 }.each do |product|
-  proxy "/ua/products/#{product}.html", "product.html", ignore: true do
+Showcase::Items.list.each do |dir|
+  proxy "/uk/products/#{dir}.html", "product.html",
+    locals: { dir: dir, lang: :ua },
+    ignore: true do
     ::I18n.locale = :uk
     @lang = :uk
   end
 
-  proxy "/ja/products/#{product}.html", "product.html", ignore: true do
+  proxy "/ja/products/#{dir}.html", "product.html",
+    locals: { dir: dir, lang: :ja },
+    ignore: true do
     ::I18n.locale = :ja
     @lang = :ja
   end
 
-  proxy "products/#{product}.html", "product.html", ignore: true do
+  proxy "products/#{dir}.html", "product.html",
+    locals: { dir: dir, lang: :en },
+    ignore: true do
     ::I18n.locale = :en
     @lang = :en
   end
