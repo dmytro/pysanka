@@ -3,11 +3,6 @@ class Showcase < Middleman::Extension
   ASSETS = "source/assets/images"
   ASSETS_URL = "showcase"
   PATH = "#{ASSETS}/showcase"
-  DEFAULTS =  {
-    title: "Title",
-    subtitle: "Sub Title",
-    summary: "Що небудь про писанку...",
-  }
 
   require_relative "showcase/items"
   require_relative "showcase/item"

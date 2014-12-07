@@ -15,9 +15,6 @@ class Showcase < Middleman::Extension
       Items.items.sample(count)
     end
 
-    def defaults
-      Showcase::DEFAULTS
-    end
 
     delegate :title, :subtitle, :summary, :description, :link_to,
       to: :data, allow_nil: true
@@ -28,7 +25,7 @@ class Showcase < Middleman::Extension
 
     def data
       @data ||= OpenStruct.new(
-        defaults.merge(
+        Items.data.merge(
           (File.exists?(data_file) ? YAML.load_file(data_file) : {})
         )
       )

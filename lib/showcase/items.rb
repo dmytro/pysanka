@@ -7,8 +7,16 @@ class Showcase < Middleman::Extension
     def initialize
       @path = Showcase::PATH
     end
-
     class << self
+
+      def data
+        File.exists?(data_file) ? YAML.load_file(data_file) : {}
+      end
+
+      def data_file
+        @data_file ||= "#{Items.new.path}/data.yml"
+      end
+
 
       def dirs
         @dirs ||= Dir.glob("#{self.new.path}/*").select { |fn| File.directory?(fn) }
