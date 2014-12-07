@@ -44,9 +44,13 @@
     max-height: 300px;
     overflow: hidden;
 }
-body.project {
-    .portfolio-item{
-        max-height: inherit;
+.portfolio-item.full-size{
+    max-height: inherit;
+}
+
+.btn {
+    &:hover {
+        border: initial !important;
     }
 }
 

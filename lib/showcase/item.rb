@@ -11,6 +11,10 @@ class Showcase < Middleman::Extension
 
     alias :basename :dir
 
+    def related(count=3)
+      Items.items.sample(count)
+    end
+
     def defaults
       Showcase::DEFAULTS
     end

@@ -37,6 +37,7 @@ class Showcase < Middleman::Extension
     def showcase_list(limit=0)
       ::Showcase::Items.list[0..(limit-1)]
     end
+
   end
 
 end
