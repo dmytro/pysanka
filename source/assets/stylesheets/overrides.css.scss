@@ -1,9 +1,18 @@
+@import "variables.scss";
 // components.less
 .mainmenu li.logo-wrapper a{
   padding-right: 10px;
   margin-right: 10px;
 }
 
+.btn-theme {
+    background-color: $theme-color !important;
+    color: #ffffff;
+    &:hover {
+        color: #ffffff !important;
+        font-weight: bold;
+    }
+}
 .mainmenu-wrapper.well {
     padding-top: 0px;
     padding-right: 0px;
