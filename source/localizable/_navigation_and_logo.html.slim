@@ -5,4 +5,4 @@
       ul
         = partial :logo
         - data.navigation.each do |link|
-          = partial "widgets/menu_link", locals: { href: "/#{locale_prefix}/#{link.href}", title: "#{l link.title}" }
+          = partial "widgets/menu_link", locals: { link: link }

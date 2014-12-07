@@ -35,7 +35,7 @@ class Showcase < Middleman::Extension
     end
 
     def url
-      @url ||= (link_to || "products/#{dir}")
+      @url ||= (link_to || "item_#{dir}")
     end
 
 

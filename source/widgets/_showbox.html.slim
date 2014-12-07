@@ -1,8 +1,7 @@
 .col-md-4.col-sm-6.well
   .portfolio-item
     .portfolio-image
-      a[href="#{item.link_to}"]
-        = image_tag item.thumb.url
+      a[href="#{item.url}"] = image_tag item.thumb.url
 
     .portfolio-info-fade
       ul
@@ -10,4 +9,4 @@
         li= l item.subtitle
         li= l item.summary
         li.read-more
-          a.btn.btn-theme[href="#{item.url}"]= l("Read more")
+          a.btn.btn-theme[href="#{locale_prefix}/#{item.url}"]= t :read_more

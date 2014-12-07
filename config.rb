@@ -71,7 +71,7 @@ helpers do
     when :en
       ""
     else
-      I18n.locale.to_s
+      "/#{I18n.locale.to_s}"
     end
   end
 end
@@ -81,21 +81,21 @@ end
 # --------------------------------------------
 activate :showcase
 Showcase::Items.list.each do |dir|
-  proxy "/uk/products/#{dir}.html", "product.html",
+  proxy "/uk/item_#{dir}.html", "product.html",
     locals: { item: ::Showcase::Item.new(dir), lang: :ua },
     ignore: true do
     ::I18n.locale = :uk
     @lang = :uk
   end
 
-  proxy "/ja/products/#{dir}.html", "product.html",
+  proxy "/ja/item_#{dir}.html", "product.html",
     locals: { item: ::Showcase::Item.new(dir), lang: :ja },
     ignore: true do
     ::I18n.locale = :ja
     @lang = :ja
   end
 
-  proxy "products/#{dir}.html", "product.html",
+  proxy "item_#{dir}.html", "product.html",
     locals: { item: ::Showcase::Item.new(dir), lang: :en },
     ignore: true do
     ::I18n.locale = :en
