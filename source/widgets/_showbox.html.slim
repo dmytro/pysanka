@@ -1,13 +1,13 @@
 .col-md-4.col-sm-6.well
   .portfolio-item
     .portfolio-image
-      a[href="#{item.data.link_to}"]
+      a[href="#{item.link_to}"]
         = image_tag item.thumb.url
 
     .portfolio-info-fade
       ul
-        li.portfolio-project-name= l item.data.title
-        li= l item.data.subtitle
-        li= l item.data.summary
+        li.portfolio-project-name= l item.title
+        li= l item.subtitle
+        li= l item.summary
         li.read-more
-          a.btn[href="#{item.data.link_to}"] l Read more
+          a.btn[href="#{item.url}"]= l("Read more")

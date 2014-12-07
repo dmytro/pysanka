@@ -2,7 +2,7 @@
 require 'slim'
 Slim::Engine.disable_option_validator!
 
-#$. << "lib"
+#$. << "./lib"
 require "#{File.dirname(__FILE__)}/lib/showcase"
 I18n.enforce_available_locales = true
 # general settings
@@ -69,21 +69,21 @@ end
 activate :showcase
 Showcase::Items.list.each do |dir|
   proxy "/uk/products/#{dir}.html", "product.html",
-    locals: { dir: dir, lang: :ua },
+    locals: { item: ::Showcase::Item.new(dir), lang: :ua },
     ignore: true do
     ::I18n.locale = :uk
     @lang = :uk
   end
 
   proxy "/ja/products/#{dir}.html", "product.html",
-    locals: { dir: dir, lang: :ja },
+    locals: { item: ::Showcase::Item.new(dir), lang: :ja },
     ignore: true do
     ::I18n.locale = :ja
     @lang = :ja
   end
 
   proxy "products/#{dir}.html", "product.html",
-    locals: { dir: dir, lang: :en },
+    locals: { item: ::Showcase::Item.new(dir), lang: :en },
     ignore: true do
     ::I18n.locale = :en
     @lang = :en
