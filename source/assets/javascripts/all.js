@@ -9,6 +9,15 @@
 //= require modernizr-2.6.2-respond-1.1.0.min
 //= require material.min
 //= require ripples.min
+//= require jquery.cycle.all
+
 $(document).ready(function() {
     $.material.init();
 });
+
+$(document).ready(function(){
+    $('#rotator').cycle({
+        fx: 'fade',
+        speed: 3000
+    });
+})

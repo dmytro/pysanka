@@ -2,4 +2,28 @@
 layout: project
 ---
 
-a[name="pysanka"]
+/! Page Title
+.section.section-breadcrumbs
+  .container
+    .row
+      .col-sm-12
+        h1 title
+.section#product-description
+  .container
+    .row
+      .col-sm-6
+        .portfolio-item
+          .portfolio-image
+            #rotator
+              - item.images.each do |image|
+                = image_tag image.url
+      .portfolio-item-description.col-sm-6
+        h3= l item.title
+        p
+         = l item.summary
+          li
+            = l item.subtitle
+          li.portfolio-visit-btn
+            a.btn href="#"  Visit Website
+/ css:
+/   #rotator { min-height: 800;}
