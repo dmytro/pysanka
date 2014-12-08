@@ -2,65 +2,58 @@
   .container
     .row
       .col-footer.col-md-3.col-xs-6
-        h3
-          | Our Latest Work
+        h3 = t "footer.latest_work"
         .portfolio-item
           .portfolio-image
             a[href="page-portfolio-item.html"]
               = image_tag "portfolio6.jpg"
       .col-footer.col-md-3.col-xs-6
-        h3
-          | Navigate
+        h3 = t "footer.navigate"
         ul.no-list-style.footer-navigate-section
           li
-            a[href="page-blog-posts.html"]
-              | Blog
+            a[href="blog.html"]
+              = t "footer.blog"
           li
-            a[href="page-portfolio-3-columns-2.html"]
-              | Portfolio
+            a[href="portfolio.html"]
+              = t "footer.portfolio"
           li
-            a[href="page-products-3-columns.html"]
-              | eShop
+            a[href="products.html"]
+              = t "footer.eshop"
           li
-            a[href="page-services-3-columns.html"]
-              | Services
+            a[href="services.html"]
+              = t "footer.services"
           li
-            a[href="page-pricing.html"]
-              | Pricing
+            a[href="pricing.html"]
+              = t "footer.pricing"
           li
-            a[href="page-faq.html"]
-              | FAQ
+            a[href="faq.html"]
+              = t "footer.faq"
       .col-footer.col-md-4.col-xs-6
-        h3
-          | Contacts
+        h3= t "footer.contacts"
         p.contact-us-details
           b
-            | Address:
-          |  123 Fake Street, LN1 2ST, London, United Kingdom
+           = t "footer.phone"
+           | :
+           =< data.author.phone
           br
           b
-            | Phone:
-          |  +44 123 654321
-          br
-          b
-            | Fax:
-          |  +44 123 654321
-          br
-          b
-            | Email:
-          a[href="mailto:getintoutch@yourcompanydomain.com"]
-            | getintoutch@yourcompanydomain.com
+            = t "footer.email"
+            | :
+            =< mail_to data.author.email
+
       .col-footer.col-md-2.col-xs-6
-        h3
-          | Stay Connected
+        h3= t "footer.stay_connected"
         ul.footer-stay-connected.no-list-style
-          li
-            a.facebook[href="#"]
-          li
-            a.twitter[href="#"]
-          li
-            a.googleplus[href="#"]
+          - if data.author.facebook.present?
+            li
+              a.facebook[href="#{data.author.facebook}"]
+          - if data.author.twitter.present?
+            li
+              a.twitter[href="#{data.author.twitter}"]
+          - if data.author.googleplus.present?
+            li
+              a.googleplus[href="#{data.author.googleplus}"]
     .row
       .col-md-12
         .footer-copyright
-          | © 2013 mPurpose. All rights reserved.
+          | © 2014 #{l data.author.name}. All rights reserved.

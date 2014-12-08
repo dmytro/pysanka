@@ -1,5 +1,18 @@
 ---
 uk:
-  back: Повернутися
+  back: Назад
   related_projects: Схожі товари
   read_more: Читати далі
+  footer:
+    contacts: Наші контакти
+    email: Електронна пошта
+    phone: Телефон
+    fax: Факс
+    stay_connected: "До зв'язку"
+    latest_work: Наші останні роботи
+    navigate: Навігація
+    blog: Веб журнал
+    portfolio: Портфоліо
+    services: Послуги
+    pricing: Вартість
+    faq: "ЧАП'и"

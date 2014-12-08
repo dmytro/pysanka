@@ -1,5 +1,8 @@
-name : First-name Last-name
-email : blah@email.test
-github : username
-twitter : username
-feedburner : feedname
+name :
+  en: Natalya Kovalova
+  ja: コヴァリョヴァ。ナタリャ
+  uk: Наталя Ковальова
+email : natalya.kovalova@gmail.com
+phone: +81-931813293
+facebook: https://www.facebook.com/kovalova.natalya
+# googleplus:
