@@ -3,21 +3,18 @@
 .mainmenu li.logo-wrapper a{
   padding-right: 10px;
   margin-right: 10px;
+  border-right: 1px solid $theme-color;
 }
 
-.btn-theme {
-    background-color: $theme-color !important;
-    color: #ffffff;
-    &:hover {
-        color: #ffffff !important;
-        font-weight: bold;
-    }
-}
 .mainmenu-wrapper.well {
     padding-top: 0px;
-    padding-right: 0px;
+    padding-right: 10px;
+    z-index: 10000;
 }
 
+/* .menuextras { */
+/*     margin-bottom: -30px; */
+/* } */
 // row 2148
 .mainmenu {
 	/* first level ul style */
@@ -33,12 +30,50 @@
 
 // row 1621
 
-#sequence,
-#sequence > .sequence-canvas,
-#sequence > .sequence-canvas > li {
-
-    height: 600px;
+#sequence {
+    height: 100px;
 }
+#sequence > .sequence-canvas { /* required */
+    height: 100%;
+    width: 100%;
+}
+
+#sequence > .sequence-canvas > li { /* required */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#sequence > .sequence-canvas > li.bg1,
+#sequence > .sequence-canvas > li.bg2,
+#sequence > .sequence-canvas > li.bg3,
+#sequence > .sequence-canvas > li.bg4,
+#sequence > .sequence-canvas > li.bg5,
+#sequence > .sequence-canvas > li.bg6,
+#sequence > .sequence-canvas > li.bg7,
+#sequence > .sequence-canvas > li.bg8,
+#sequence > .sequence-canvas > li.bg9,
+#sequence > .sequence-canvas > li.bg10,
+#sequence > .sequence-canvas > li.bg11,
+#sequence > .sequence-canvas > li.bg12,
+#sequence > .sequence-canvas > li.bg13,
+#sequence > .sequence-canvas > li.bg14 {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.sequence-pagination li {
+    border: 4px solid $slider-color;
+}
+.sequence-pagination li.current {
+    background: $slider-color;
+}
+/* #sequence { position: fixed; top: 0; left: 0; } */
+.bgwidth { width: 100%; }
+.bgheight { height: 100%; }
 
 .portfolio-item{
     max-height: 300px;
@@ -63,5 +98,18 @@
 @media screen and (max-width: 479px) {
 	.mainmenu > ul > li {
         border: 0;
+    }
+}
+
+.btn-white:not(.btn-link):not(.btn-flat) {
+    background-color: #ffffff;
+}
+
+.btn-theme {
+    background-color: $theme-color !important;
+    color: #ffffff !important;
+    &:hover {
+        color: #ffffff !important;
+        font-weight: bold;
     }
 }

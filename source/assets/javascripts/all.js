@@ -10,7 +10,7 @@
 //= require material.min
 //= require ripples.min
 //= require jquery.cycle.all
-
+//= require jquery.scrollupformenu.js
 $(document).ready(function() {
     $.material.init();
 });
@@ -20,4 +20,24 @@ $(document).ready(function(){
         fx: 'fade',
         speed: 3000
     });
-})
+});
+
+$(document).ready(function() {
+    $('.mainmenu-wrapper').scrollUpMenu({
+        waitTime: 200,
+        transitionTime: 150,
+        menuCss: { 'position': 'fixed', 'top': '0', 'width': '100%', 'background-color': "rgba(255,255,255,0.7)"}
+    })
+
+});
+
+$(document).ready(function() {
+    var bodyheight = $(window).height();
+    $("#sequence").height(bodyheight);
+    $("#sequence").top(0);
+});
+
+$(document).resize(function() {
+    var bodyheight = $(window).height();
+    $("#sequence").height(bodyheight);
+});
