@@ -34,7 +34,7 @@ $(document).ready(function() {
 $(document).ready(function() {
     var bodyheight = $(window).height();
     $("#sequence").height(bodyheight);
-    $("#sequence").top(0);
+    // $("#sequence").top(0);
 });
 
 $(document).resize(function() {
@@ -43,22 +43,20 @@ $(document).resize(function() {
 });
 
 
-// $(document).ready(function() {
-//     $("#toTop").css("display", "none");
-//     $(window).scroll(function(){
-//         if($(window).scrollTop() > 0){
-//             console.log("is more");
-//             $("#toTop").fadeIn("slow");
-//         }
-//         else {
-//             console.log("is less");
-//             $("#toTop").fadeOut("slow");
+$(document).ready(function() {
+    $("#toTop").css("display", "none");
+    $(window).scroll(function(){
+        if($(window).scrollTop() > 0){
+            $("#toTop").fadeIn("slow");
+        }
+        else {
+            $("#toTop").fadeOut("slow");
 
-//         }
-//     });
+        }
+    });
 
-//     $("#toTop").click(function(){
-//         event.preventDefault();
-//         $("html, body").animate({ scrollTop:0 }, "slow");
-//     });
-// );
+    $("#toTop").click(function(){
+        event.preventDefault();
+        $("html, body").animate({ scrollTop:0 }, "slow");
+    });
+});
