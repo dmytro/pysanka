@@ -1,4 +1,5 @@
 @import "variables.scss";
+@import "font-awesome";
 // components.less
 .mainmenu li.logo-wrapper a{
   padding-right: 10px;
@@ -109,6 +110,16 @@
     background-color: $theme-color !important;
     color: #ffffff !important;
     &:hover {
+        color: #ffffff !important;
+        font-weight: bold;
+    }
+}
+
+.btn-alter-op {
+    background-color:  $slider-color-03 !important;
+    color: #ffffff !important;
+    &:hover {
+        background-color:  $slider-color !important;
         color: #ffffff !important;
         font-weight: bold;
     }
