@@ -109,9 +109,13 @@ configure :build do
   #activate :gzip
   ignore 'product.html'
   ignore(/Icon\r$/)
+  ignore(/\.DS_Store/)
+  .DS_Store
   ignore(/^assets.*\.yml/)
   ignore(/^assets\/stylesheets\/(?!all).*\.css/)
   ignore(/^assets\/javascripts\/(?!all).*\.js/)
+  ignore(%r{^assets/stylesheets/colorschemas/.*})
+
 
   # if ENV['CDN_HOST']
   #   activate :asset_host
