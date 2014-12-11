@@ -7,6 +7,6 @@ li
     ul.dropdown-menu[role="menu"]
       - data.languages.each do |lang,config|
         li[role="menuitem"]
-          a[href="/#{lang == 'en' ? "" : lang}"]
+          a[href="/#{current_with_locale(lang)}"]
             = image_tag "flags/#{config.flag}", alt: "#{config.display_name}"
             =< config.display_name

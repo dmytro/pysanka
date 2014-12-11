@@ -43,23 +43,16 @@ helpers do
     data.languages[I18n.locale]
   end
 
-  # TODO
-  # Get the current page URL without locale prepended
-  # def current_without_locale
-  #   link = current_page.path
-  #   link.sub!(%r{^/},"")
-  #   link.sub!(%r{^#{I18n.locale.to_s}/}, "")
-  # end
-
-  # def current_with_locale(locale)
-  #   locale = locale.to_s
-  #   case locale
-  #   when 'en'
-  #     "#{current_without_locale}"
-  #   else
-  #     "#{locale}/#{current_without_locale}"
-  #   end
-  # end
+  def current_with_locale(locale)
+    case I18n.locale
+    when :en
+      "#{locale}#{current_page.url}"
+    else
+      current_page.url
+        .sub(%r{^/#{I18n.locale.to_s}}, (locale.to_s == "en" ? '' : locale.to_s))
+        .sub(%r{^/}, "")
+    end
+  end
 
   # Translate strings that are not part of /locale/ directory.
   def l(key)
