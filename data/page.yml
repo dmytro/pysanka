@@ -1,4 +1,12 @@
-title : Site Title
+title :
+  en: Ukrainian Art, Japan
+  uk: Українське мистецтво, Японія
+  ja: 日本でのウクライナの名作
 tagline: Site Tagline
-description: |
-  Some description goes here
+description:
+  en: |
+    Some description goes here
+  ja: |
+    Some description goes here
+  uk: |
+    Українське писанкарство та інші традиційні українські вироби в Токіо. Мистецькі класи, групові заняття та мастер класи. Мистецькі вироби на продаж та для виставок.
