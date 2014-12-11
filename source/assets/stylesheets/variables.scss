@@ -1,7 +1,28 @@
-$theme-color: #6DA4D3; //Light Blue Color Scheme
+@import "colorschemas/triad4_bright_pastel.scss";
 
-$theme-color: #6DA4D3; //Light Blue Color Scheme
+$theme-color:      $color-primary-0;
+$theme-color1:      $color-primary-1;
+$theme-color2:      $color-primary-2;
+$theme-color3:      $color-primary-3;
+$theme-color4:      $color-primary-4;
 
-$slider-color: rgb(124,29,29);
-$slider-color-05: rgba(124,29,29,.5);
-$slider-color-03: rgba(124,29,29,.3);
+
+$theme-color-1:    $color-secondary-1-0;
+$theme-color-2:    $color-secondary-2-0;
+$theme-color-comp: $color-complement-0;
+
+
+$theme-color-1-4:    $color-secondary-1-4;
+
+$btn-alt1-color: $color-secondary-1-0;
+$btn-alt2-color: $color-secondary-2-0;
+
+$btn-alt1-color-op2: rgba($color-secondary-1-0, .2);
+$btn-alt1-color-op5: rgba($color-secondary-1-0, .5);
+$btn-alt1-color-op8: rgba($color-secondary-1-0, .8);
+
+$btn-alt2-color-op2: rgba($color-secondary-2-0, .2);
+$btn-alt2-color-op5: rgba($color-secondary-2-0, .5);
+$btn-alt2-color-op8: rgba($color-secondary-2-0, .8);
+
+$slider-color: $color-complement-0;
