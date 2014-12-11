@@ -3,10 +3,11 @@ html[lang="en"]
   head
     meta[charset="utf-8"]
     title
-      = data.page.title
+      = l data.page.title
+    <link type="image/png" href="favicon.png" rel="icon" />
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
-    meta[name="description" content="#{data.page.description}"]
-    meta[name="author" content="{# data.author.name }"]
+    meta[name="description" content="#{l data.page.description}"]
+    meta[name="author" content="#{l data.author.name }"]
 
      = stylesheet_link_tag "all.css"
   body
