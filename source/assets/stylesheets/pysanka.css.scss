@@ -161,6 +161,12 @@ $caviar: caviar_dreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
 
     &.section-breadcrumbs-main {
         background-color: $theme-color;
+        background-image:
+        radial-gradient(
+                ellipse at top left,
+                $theme-color4,
+                $theme-color2
+            );
         a {
             /* color: rgba($secondary2-color-3, .2); */
             &:hover {
