@@ -100,6 +100,9 @@
 
 }
 
+$arsenal: arsenal, "Helvetica Neue",Helvetica,Arial,sans-serif;
+$caviar: caviar_dreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+
 .showbox {
     width: 400px !important;
     height: 400px !important;
@@ -132,17 +135,52 @@
 }
 
 .section.section-breadcrumbs {
-        &.section-breadcrumbs-1 {
-            background-color: $theme-color-1;
+    a {
+        float: right;
+        font-family: $caviar;
+        font-weight: bold;
+        text-decoration: none;
+        color: rgba(0,0,0, .2);
+    }
+    h1, h2, h3, h4, h5, h6 {
+        text-align: center;
+        color: #222222;
+    }
+
+    &.section-breadcrumbs-main,
+    &.section-breadcrumbs-sec1,
+    &.section-breadcrumbs-sec2,
+    &.section-breadcrumbs-comp {
+        h1 { font-size: 4em;
+             font-weight: normal;
+           }
+        a {
+            font-size: 1.4em;
         }
-        &.section-breadcrumbs-2 {
-            background-color: $theme-color-2;
+    }
+
+    &.section-breadcrumbs-main {
+        background-color: $theme-color;
+        a {
+            /* color: rgba($secondary2-color-3, .2); */
+            &:hover {
+                background-color: $theme-color4;
+                color: $theme-color2;
+            }
         }
+
+    }
+    &.section-breadcrumbs-2 {
+        background-color: $secondary2-color;
+        /* h1, h2, h3, h4, h5, h6 { */
+        /*     color: lighten($complementary-color, 20%); */
+        /* } */
+    }
 }
 
 body {
-    font-family: arsenal, "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: $arsenal
 }
 h1,h2,h3,h4,h5,h6 {
-    font-family: caviar_dreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: $caviar;
 }
