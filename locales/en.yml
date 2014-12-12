@@ -3,6 +3,8 @@ en:
   back: Back
   related_projects: Related products
   read_more: Read more
+  products:
+    see_all: All products
   footer:
     contacts: Contact us
     email: Email
