@@ -6,7 +6,7 @@
  *  Source:       http://github.com/dvdsmpsn/scroll-up-for-menu
  *
  *  Usage:        $('#top').scrollUpForMenu(options);
- *      
+ *
  *
  *
  */
@@ -19,7 +19,7 @@
 			menuCss: { 'position': 'fixed', 'top': '0'}
 	};
 
-	var lastScrollTop = 0;				
+	var lastScrollTop = 0;
 	var $header;
 	var timer;
 	var pixelsFromTheTop;
@@ -35,23 +35,23 @@
 
 	Plugin.prototype = {
 		init: function () {
-			
+
 			var self = this;
 			$header = $(this.element);
 			$header.css(self.settings.menuCss);
 			pixelsFromTheTop = $header.height();
-			
-			$header.next().css({ 'margin-top': pixelsFromTheTop });
-		
+
+			// $header.next().css({ 'margin-top': pixelsFromTheTop });
+
 			$(window).bind('scroll',function () {
 				clearTimeout(timer);
 				timer = setTimeout(function() {
-					self.refresh(self.settings) 
+					self.refresh(self.settings)
 				}, self.settings.waitTime );
 			});
 		},
-		refresh: function (settings) { 
-			// Stopped scrolling, do stuff...				   			
+		refresh: function (settings) {
+			// Stopped scrolling, do stuff...
 			var scrollTop = $(window).scrollTop();
 
 			if (scrollTop > lastScrollTop && scrollTop > pixelsFromTheTop){ // ensure that the header doesnt disappear too early
