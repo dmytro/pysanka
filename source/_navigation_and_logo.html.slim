@@ -1,1 +1,9 @@
-localizable/_navigation_and_logo.html.slim
+.mainmenu-wrapper.well
+  .container
+    nav#mainmenu.mainmenu
+      / = partial :menu_extra
+      ul
+        = partial :logo
+        - data.navigation.each do |link|
+          = partial "widgets/menu_link", locals: { link: link }
+        = partial :language_select

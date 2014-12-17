@@ -1,1 +1,60 @@
-localizable/_footer.html.slim
+.footer#about
+  .container
+    .row
+      .col-footer.col-md-3.col-xs-6
+        a name="about"
+          h3 = t "footer.latest_work"
+        .portfolio-item
+          .portfolio-image
+            a[href="page-portfolio-item.html"]
+              = image_tag "portfolio6.jpg"
+      .col-footer.col-md-3.col-xs-6
+        h3 = t "footer.navigate"
+        ul.no-list-style.footer-navigate-section
+          li
+            a[href="blog.html"]
+              = t "footer.blog"
+          li
+            a[href="portfolio.html"]
+              = t "footer.portfolio"
+          li
+            a[href="products.html"]
+              = t "footer.eshop"
+          li
+            a[href="services.html"]
+              = t "footer.services"
+          li
+            a[href="pricing.html"]
+              = t "footer.pricing"
+          li
+            a[href="faq.html"]
+              = t "footer.faq"
+      .col-footer.col-md-4.col-xs-6
+        h3= t "footer.contacts"
+        p.contact-us-details
+          b
+           = t "footer.phone"
+           | :
+           =< data.author.phone
+          br
+          b
+            = t "footer.email"
+            | :
+            =< mail_to data.author.email
+
+      .col-footer.col-md-2.col-xs-6
+        h3= t "footer.stay_connected"
+        ul.footer-stay-connected.no-list-style
+          - if data.author.facebook.present?
+            li
+              a.facebook[href="#{data.author.facebook}"]
+          - if data.author.twitter.present?
+            li
+              a.twitter[href="#{data.author.twitter}"]
+          - if data.author.googleplus.present?
+            li
+              a.googleplus[href="#{data.author.googleplus}"]
+    .row
+      .col-md-12
+        .footer-copyright
+          | © 2014 #{l data.author.name}. All rights reserved.

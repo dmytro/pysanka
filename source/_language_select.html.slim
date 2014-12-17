@@ -1,12 +1,13 @@
-li
-  .dropdown.choose-country
-    a[class="#" data-toggle="dropdown" href="#"]
-      = image_tag "flags/#{current_language.flag}"
-      .language
-        =< current_language.display_name
-    ul.dropdown-menu[role="menu"]
-      - data.languages.each do |lang,config|
-        li[role="menuitem"]
-          a[href="/#{current_with_locale(lang)}"]
-            = image_tag "flags/#{config.flag}", alt: "#{config.display_name}"
-            =< config.display_name
+li.has-submenu
+  li.btn.btn-theme
+    = image_tag "flags/#{current_language.flag}"
+    .language
+      =< current_language.display_name
+  .mainmenu-submenu
+    .mainmenu-submenu-inner
+      ul
+        - data.languages.each do |lang,config|
+          li
+            a[href="/#{current_with_locale(lang)}"]
+              = image_tag "flags/#{config.flag}", alt: "#{config.display_name}"
+              =< config.display_name
