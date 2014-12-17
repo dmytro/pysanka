@@ -1,0 +1,28 @@
+.section.section-breadcrumbs.section-breadcrumbs-sec1
+  .section
+    .container
+      .row
+        .col-md-12
+          a[name="events" id="events"]
+          h1= t "events.title"
+          a.btn.btn-default[href="#{locale_prefix}/events"]
+            = t "events.see_all"
+            i.fa.fa-arrow-right.fa-lg<
+.section
+  .container
+    .row
+.container
+  .row.well
+    h1= l event.title
+    ul
+      li
+        b= t "events.where"
+        =< l event.address
+      li
+        b= t "events.when"
+        =< l event.date
+    hr
+    .col-md-6.col-sm-6
+      p= l event.description
+    .col-md-6.col-sm-6
+      = event.map

@@ -1,0 +1,19 @@
+---
+layout: layout
+---
+
+.section.section-breadcrumbs.section-breadcrumbs-sec1.section-top
+  .section
+    .container
+      .row
+        .col-md-12
+          a[name="events" id="events"]
+          h1= t "events.title"
+.section
+  .container
+    .row.well
+      .col-md-12
+        table.events-list
+          tbody
+            - data.events.each_with_index do |event, index|
+              = partial :event, locals: { event: event , index: index}
