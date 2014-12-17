@@ -165,23 +165,60 @@ $caviar: caviar_dreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
         background-image:
         radial-gradient(
                 ellipse at top left,
-                $theme-color4,
-                $theme-color2
+                $theme-color2,
+                $theme-color4
             );
         a {
-            /* color: rgba($secondary2-color-3, .2); */
             &:hover {
                 background-color: $theme-color4;
                 color: $theme-color2;
             }
         }
-
     }
-    &.section-breadcrumbs-2 {
+    &.section-breadcrumbs-sec1 {
+        background-color: $secondary1-color;
+        background-image:
+        radial-gradient(
+                ellipse at top left,
+                $secondary1-color-4,
+                $secondary1-color-2
+            );
+        a {
+            &:hover {
+                background-color: $secondary1-color-4;
+                color: $secondary1-color-2;
+            }
+        }
+    }
+    &.section-breadcrumbs-sec2 {
         background-color: $secondary2-color;
-        /* h1, h2, h3, h4, h5, h6 { */
-        /*     color: lighten($complementary-color, 20%); */
-        /* } */
+        background-image:
+        radial-gradient(
+                ellipse at top left,
+                $secondary2-color-4,
+                $secondary2-color-2
+            );
+        a {
+            &:hover {
+                background-color: $secondary2-color-4;
+                color: $secondary2-color-2;
+            }
+        }
+    }
+    &.section-breadcrumbs-comp {
+        background-color: $complementary-color;
+        background-image:
+        radial-gradient(
+                ellipse at top left,
+                $complementary-color-4,
+                $complementary-color-2
+            );
+        a {
+            &:hover {
+                background-color: $complementary-color-4;
+                color: $complementary-color-2;
+            }
+        }
     }
 }
 
