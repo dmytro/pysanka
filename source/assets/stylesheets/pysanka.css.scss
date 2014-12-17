@@ -190,3 +190,25 @@ body {
 h1,h2,h3,h4,h5,h6 {
     font-family: $caviar;
 }
+
+.section-top {
+    margin-top: 109px;
+    @media screen and (max-width: 979px) {
+        margin-top: 92px;
+    }
+    @media screen and (max-width: 479px) {
+        margin-top: 243px;
+    }
+}
+
+
+/* @media (min-width: 768px) { */
+/* @media (max-width: 500px){ */
+/* @media (max-width: 768px){ */
+/* @media (max-width: 479px){ */
+/* @media only screen and (min-width: 992px) { */
+/* @media only screen and (max-width: 838px) { */
+/* @media only screen and (max-width: 768px) { */
+/* @media only screen and (max-width: 568px) { */
+/* @media screen and (max-width: 979px) { */
+/* @media screen and (max-width: 479px) { */
