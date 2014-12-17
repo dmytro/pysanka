@@ -5,6 +5,11 @@ ja:
   read_more: 続きを読む
   products:
     see_all: すべての製品
+  events:
+    title: イベント
+    see_all: その他のイベント
+    where: TODO За адресою
+    when: TODO Час
   footer:
     contacts: コンタクト
     email: E-mail

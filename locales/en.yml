@@ -5,6 +5,11 @@ en:
   read_more: Read more
   products:
     see_all: All products
+  events:
+    title: Events
+    see_all: Other events
+    where: Address
+    when: Date
   footer:
     contacts: Contact us
     email: Email

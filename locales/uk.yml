@@ -5,6 +5,11 @@ uk:
   read_more: Читати далі
   products:
     see_all: Всі продукти
+  events:
+    title: Події
+    see_all: Минулі події
+    where: За адресою
+    when: Час
   footer:
     contacts: Наші контакти
     email: Електронна пошта
