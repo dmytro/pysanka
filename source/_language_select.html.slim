@@ -1,7 +1,7 @@
 .dropdown#language-select
   button.btn.btn-theme.btn-raised.dropdown-toggle[title="#{current_language.display_name}" data-toggle="dropdown" aria-expanded="true"]
     = image_tag "flags/#{current_language.flag}"
-    =< current_language.display_name [title="#{current_language.display_name}" ]
+    =< current_language.display_name
   ul.dropdown-menu[role="menu" aria-labelledby="language"]
     - data.languages.each do |lang,config|
       li[role="presentation"]

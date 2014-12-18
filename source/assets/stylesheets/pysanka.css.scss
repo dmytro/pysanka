@@ -130,11 +130,10 @@ $caviar: caviar_dreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
         text-align: left;
         padding-left: .2em;
         padding-right: 1.2em;
-        display: inline-block;
+        letter-spacing: 0.075ex;
         &:hover {
-            font-weight: bold;
+            letter-spacing: 0;
         }
-
     }
 
     ul {
@@ -151,16 +150,6 @@ $caviar: caviar_dreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
             background-color: $theme-color;
             color: #666666;
             font-weight: bold;
-        }
-        &::after {
-            display:block;
-            content:attr(title);
-            font-weight:bold;
-            height:1px;
-            color:transparent;
-            overflow:hidden;
-            visibility:hidden;
-            margin-bottom:-1px;
         }
     }
 }
