@@ -13,6 +13,8 @@
 //= require jquery.scrollupformenu.js
 
 $(document).ready(function() {
+    $('.dropdown-toggle').dropdown();
+
     $.material.init();
 
     $('#rotator').cycle({

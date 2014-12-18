@@ -1,13 +1,10 @@
-li.has-submenu
-  li.btn.btn-theme
+.dropdown#language-select
+  button.btn.btn-theme.btn-raised.dropdown-toggle[title="#{current_language.display_name}" data-toggle="dropdown" aria-expanded="true"]
     = image_tag "flags/#{current_language.flag}"
-    .language
-      =< current_language.display_name
-  .mainmenu-submenu
-    .mainmenu-submenu-inner
-      ul
-        - data.languages.each do |lang,config|
-          li
-            a[href="/#{current_with_locale(lang)}"]
-              = image_tag "flags/#{config.flag}", alt: "#{config.display_name}"
-              =< config.display_name
+    =< current_language.display_name [title="#{current_language.display_name}" ]
+  ul.dropdown-menu[role="menu" aria-labelledby="language"]
+    - data.languages.each do |lang,config|
+      li[role="presentation"]
+        a[role="menuitem" href="/#{current_with_locale(lang)}"]
+          = image_tag "flags/#{config.flag}", alt: "#{config.display_name}"
+          =< config.display_name
