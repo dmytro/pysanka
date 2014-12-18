@@ -13,9 +13,19 @@
 //= require jquery.scrollupformenu.js
 
 $(document).ready(function() {
+
+    function setTopDiv () {
+        var pixelsFromTheTop = $(".mainmenu-wrapper").height();
+        console.log(pixelsFromTheTop);
+        $(".section-top").parent().parent().css({ 'margin-top': pixelsFromTheTop });
+    }
+    setTopDiv();
+
     $('.dropdown-toggle').dropdown();
 
+
     $.material.init();
+
 
     $('#rotator').cycle({
         fx: 'fade',
@@ -56,4 +66,5 @@ $(document).ready(function() {
 $(document).resize(function() {
     var bodyheight = $(window).height();
     $("#sequence").height(bodyheight);
+    setTopDiv();
 });
