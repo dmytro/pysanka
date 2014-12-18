@@ -109,9 +109,25 @@
 .btn-theme {
     background-color: $theme-color !important;
     color: #ffffff !important;
+    display:inline-block;
+    text-align:center;
+    /* letter-spacing: 0.075ex; */
     &:hover {
+        /* letter-spacing: 0; */
         color: #ffffff !important;
         font-weight: bold;
+    }
+    /* http://stackoverflow.com/questions/556153/horiz-css-menu-text-shifting-on-bold-hover */
+    &::after {
+        display:block;
+        content:attr(title);
+        font-weight:bold !important;
+        height:1px;
+        color:transparent;
+        overflow:hidden;
+        visibility:hidden;
+        margin-bottom:-1px;
+        margin-top:-1px;
     }
 }
 
