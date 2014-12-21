@@ -16,9 +16,8 @@ $(document).ready(function() {
 
     function setTopDiv () {
         var pixelsFromTheTop = $(".mainmenu-wrapper").height();
-        console.log(pixelsFromTheTop);
         $(".section-top").parent().parent().css({ 'margin-top': pixelsFromTheTop });
-    }
+    };
     setTopDiv();
 
     $('.dropdown-toggle').dropdown();
