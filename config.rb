@@ -11,6 +11,7 @@ set :index_file, 'index.html'
 set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
 set :images_dir, 'assets/images'
+set :partials_dir, 'partials'
 set :haml, { :format => :html5 }
 
 ignore '*.less'

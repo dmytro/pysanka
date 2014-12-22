@@ -189,9 +189,10 @@ $caviar: caviar_dreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
                 $theme-color4
             );
         a {
+            color: $complementary-color;
             &:hover {
                 background-color: $theme-color4;
-                color: $theme-color2;
+                color: $complementary-color;
             }
         }
     }
@@ -204,9 +205,10 @@ $caviar: caviar_dreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
                 $secondary1-color-2
             );
         a {
+            color: $secondary2-color;
             &:hover {
                 background-color: $secondary1-color-4;
-                color: $secondary1-color-2;
+                color: $secondary2-color;
             }
         }
     }
@@ -219,9 +221,10 @@ $caviar: caviar_dreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
                 $secondary2-color-2
             );
         a {
+            color: $secondary1-color;
             &:hover {
                 background-color: $secondary2-color-4;
-                color: $secondary2-color-2;
+                color: $secondary1-color;
             }
         }
     }
@@ -234,9 +237,10 @@ $caviar: caviar_dreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
                 $complementary-color-2
             );
         a {
+            color: $theme-color;x
             &:hover {
                 background-color: $complementary-color-4;
-                color: $complementary-color-2;
+                color: $theme-color;
             }
         }
     }

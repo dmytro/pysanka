@@ -5,6 +5,6 @@
       ul
         = partial :logo
         - data.navigation.each do |link|
-          = partial "widgets/menu_link", locals: { link: link }
+          = partial "navigation/menu_link", locals: { link: link }
         li.pull-right
-          = partial :language_select
+          = partial "navigation/language_select"

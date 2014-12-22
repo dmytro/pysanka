@@ -3,5 +3,5 @@ layout: layout
 ---
 
 = partial :homepage_slider
-= partial "widgets/showcase"
-= partial :events_index, locals: { event: data.events.first }
+= partial "showcase/showcase"
+= partial "index/events", locals: { event: data.events.first }
