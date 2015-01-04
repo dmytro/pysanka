@@ -1,32 +1,16 @@
 ---
--
-  bg : bg6
-  title: Писанка
-  subtitle: |
+title:
+  uk: Про нас
+  en: About
+  ja: TODO
+see_all:
+  en: See all
+  ja: TODO
+  uk: Детальніше
+description: |
 
+  Lorem ipsum dolor sit amet, et altera epicuri suscipit cum. Legere platonem complectitur mei an, oportere deterruisset te vis, vix in stet volutpat adipiscing. Vix audiam ancillae te. Oporteat democritum ne has. Nec appetere platonem liberavisse et.
 
-  image: pysanka-14.png
--
-  bg: bg8
-  title: Pysanka
-  subtitle: |
+  Summo urbanitas pro te, mea iuvaret placerat complectitur cu. Mel te viris affert principes, ei eum percipit similique, ne vocent persecuti adversarium mei. Facilisi forensibus necessitatibus in cum. Nullam lucilius quo ut, electram honestatis ei nam. Quo wisi autem doming te, ne postulant qualisque duo, in oblique delicata tractatos ius. Ad nibh ipsum vis, eos nominavi percipitur temporibus ut.
 
-  image: pysanka-12.png
--
-  bg: bg7
-  title: プィーサンカ
-  subtitle: |
-
-  image: pysanka-7.png
--
-  bg: bg5
-  title: Символіка писанки
-  subtitle: |
-
-
-  image: pysanka-2.png
--
-  bg: bg1
-  title: Писанка 1
-  subtitle: Героям Слава! І сала!
-  image: pysanka-1.png
+  Modus ocurreret torquatos eam at. Mel dicunt fastidii perpetua id, errem audire sit et, modus graeco splendide sed id. Per simul voluptatum reformidans eu. Mea brute imperdiet te.

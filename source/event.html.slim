@@ -1,0 +1,29 @@
+---
+layout: layout
+---
+
+/! Page Title
+.section.section-breadcrumbs.section-breadcrumbs-sec2.section-top
+  .section
+    .container
+      .row
+        .col-md-12
+          h1= l event.title
+
+.section
+  .container
+    .row.well.large-image-background.large-image-event
+      h1= l event.subtitle
+      = image_tag "event/event.png", class: "display-img"
+      .container
+        .text
+          ul
+            li
+              b= t "events.where"
+              =< l event.address
+            li
+              b= t "events.when"
+              =< l event.date
+          =l event.description
+        hr
+        iframe[width="400" height="300" frameborder="0" style="border:0" src="#{event['map']}"]

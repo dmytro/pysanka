@@ -1,0 +1,18 @@
+.section.section-breadcrumbs.section-breadcrumbs-sec2
+  .section
+    .container
+      .row
+        .col-md-12
+          a[name="about" id="about"]
+          h1= l data.about.title
+          a.btn.btn-default[href="#{locale_prefix}/about"]
+            =  l data.about.see_all
+            i.fa.fa-arrow-right.fa-lg<
+.section
+  .container
+    .row.well.large-image-background.large-image-about
+      h1= l data.about.title
+      = image_tag "about/about_img1.png", class: "display-img"
+      .container
+        .text
+          =l data.about.description
