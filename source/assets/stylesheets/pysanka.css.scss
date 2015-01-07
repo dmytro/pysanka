@@ -293,8 +293,34 @@ h1,h2,h3,h4,h5,h6 {
 	background-image: url(../images/event/bg.jpg);
 }
 
+.google-maps {
+    position: relative;
+    padding-bottom: 75%; // This is the aspect ratio
+    height: 0;
+    overflow: hidden;
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
 
-
+#product-pagination {
+    li.active {
+        a {
+            border: 1px solid $theme-color2;
+            background-color: $theme-color !important;
+            background-image:
+            radial-gradient(
+                ellipse at top left,
+                $theme-color2,
+                $theme-color4
+                );
+        }
+    }
+}
 /* @media (min-width: 768px) { */
 /* @media (max-width: 500px){ */
 /* @media (max-width: 768px){ */
