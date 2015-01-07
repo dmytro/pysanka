@@ -1,5 +1,8 @@
 @import "variables.scss";
 
+//
+// Fonts
+// --------------------------------------------
 @mixin font-face($font-family, $weight, $slant) {
     @font-face {
         font-family: "#{$font-family}";
@@ -17,22 +20,18 @@
         font-style: $slant;
     }
 }
+@each $style, $slant in (Regular, normal), (Bold, normal), (BoldItalic, italic), (Italic, italic) {
+    @include font-face('CaviarDreams', $style, $slant);
+    @include font-face('arsenal',      $style, $slant);
 
-@include font-face('CaviarDreams', 'Bold',       'normal');
-@include font-face('CaviarDreams', 'BoldItalic', 'italic');
-@include font-face('CaviarDreams', 'Italic',     'italic');
-@include font-face('CaviarDreams', 'Regular',    'normal');
-
-@include font-face('arsenal', 'Bold',       'normal');
-@include font-face('arsenal', 'BoldItalic', 'italic');
-@include font-face('arsenal', 'Italic',     'italic');
-@include font-face('arsenal', 'Regular',    'normal');
-
+}
 
 $arsenal: arsenal, "Helvetica Neue",Helvetica,Arial,sans-serif;
 $caviar: CaviarDreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
 
-
+//
+// Gradients
+// --------------------------------------------
 @mixin gradient($color, $color2, $color4) {
     background-color: $color;
     background-image:
@@ -41,12 +40,31 @@ $caviar: CaviarDreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
             $color2, $color4
         );
 }
-
 @mixin main-gradient { @include gradient($theme-color,         $theme-color2,          $theme-color4); }
 @mixin sec1-gradient { @include gradient($secondary1-color,    $secondary1-color-2,    $secondary1-color-4); }
 @mixin sec2-gradient { @include gradient($secondary2-color,    $secondary2-color-2,    $secondary2-color-4); }
 @mixin comp-gradient { @include gradient($complementary-color, $complementary-color-2, $complementary-color-4); }
 
+//
+// Links for gradient (breadcrumbs)
+// --------------------------------------------
+@mixin gradient-a ($color, $bg) {
+    a {
+        color: $color;
+            &:hover {
+                background-color: $bg;
+                color: $color;
+            }
+    }
+}
+@mixin main-gradient-a { @include gradient-a ($complementary-color, $theme-color4)}
+@mixin sec1-gradient-a { @include gradient-a ($secondary2-color,    $secondary1-color-4)}
+@mixin sec2-gradient-a { @include gradient-a ($secondary1-color,    $secondary2-color-4)}
+@mixin comp-gradient-a { @include gradient-a ($theme-color,         $complementary-color-4)}
+
+//
+// Start CSS
+// --------------------------------------------
 .showbox {
     width: 400px !important;
     height: 400px !important;
@@ -126,43 +144,20 @@ $caviar: CaviarDreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
 
     &.section-breadcrumbs-main {
         @include main-gradient;
-        a {
-            color: $complementary-color;
-            &:hover {
-                background-color: $theme-color4;
-                color: $complementary-color;
-            }
-        }
+        @include main-gradient-a;
+
     }
     &.section-breadcrumbs-sec1 {
         @include sec1-gradient;
-        a {
-            color: $secondary2-color;
-            &:hover {
-                background-color: $secondary1-color-4;
-                color: $secondary2-color;
-            }
-        }
+        @include sec1-gradient-a;
     }
     &.section-breadcrumbs-sec2 {
         @include sec2-gradient;
-        a {
-            color: $secondary1-color;
-            &:hover {
-                background-color: $secondary2-color-4;
-                color: $secondary1-color;
-            }
-        }
+        @include sec2-gradient-a;
     }
     &.section-breadcrumbs-comp {
         @include comp-gradient;
-        a {
-            color: $theme-color;
-            &:hover {
-                background-color: $complementary-color-4;
-                color: $theme-color;
-            }
-        }
+        @include comp-gradient-a;
     }
 }
 
@@ -247,13 +242,7 @@ h1,h2,h3,h4,h5,h6 {
     li.active {
         a {
             border: 1px solid $theme-color2;
-            background-color: $theme-color !important;
-            background-image:
-            radial-gradient(
-                ellipse at top left,
-                $theme-color2,
-                $theme-color4
-                );
+            @include main-gradient;
         }
     }
 }
