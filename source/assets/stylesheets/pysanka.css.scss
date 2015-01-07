@@ -32,6 +32,21 @@
 $arsenal: arsenal, "Helvetica Neue",Helvetica,Arial,sans-serif;
 $caviar: CaviarDreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
 
+
+@mixin gradient($color, $color2, $color4) {
+    background-color: $color;
+    background-image:
+    radial-gradient(
+            ellipse at top left,
+            $color2, $color4
+        );
+}
+
+@mixin main-gradient { @include gradient($theme-color,         $theme-color2,          $theme-color4); }
+@mixin sec1-gradient { @include gradient($secondary1-color,    $secondary1-color-2,    $secondary1-color-4); }
+@mixin sec2-gradient { @include gradient($secondary2-color,    $secondary2-color-2,    $secondary2-color-4); }
+@mixin comp-gradient { @include gradient($complementary-color, $complementary-color-2, $complementary-color-4); }
+
 .showbox {
     width: 400px !important;
     height: 400px !important;
@@ -110,13 +125,7 @@ $caviar: CaviarDreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
     }
 
     &.section-breadcrumbs-main {
-        background-color: $theme-color;
-        background-image:
-        radial-gradient(
-                ellipse at top left,
-                $theme-color2,
-                $theme-color4
-            );
+        @include main-gradient;
         a {
             color: $complementary-color;
             &:hover {
@@ -126,13 +135,7 @@ $caviar: CaviarDreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
         }
     }
     &.section-breadcrumbs-sec1 {
-        background-color: $secondary1-color;
-        background-image:
-        radial-gradient(
-                ellipse at top left,
-                $secondary1-color-4,
-                $secondary1-color-2
-            );
+        @include sec1-gradient;
         a {
             color: $secondary2-color;
             &:hover {
@@ -142,13 +145,7 @@ $caviar: CaviarDreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
         }
     }
     &.section-breadcrumbs-sec2 {
-        background-color: $secondary2-color;
-        background-image:
-        radial-gradient(
-                ellipse at top left,
-                $secondary2-color-4,
-                $secondary2-color-2
-            );
+        @include sec2-gradient;
         a {
             color: $secondary1-color;
             &:hover {
@@ -158,15 +155,9 @@ $caviar: CaviarDreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
         }
     }
     &.section-breadcrumbs-comp {
-        background-color: $complementary-color;
-        background-image:
-        radial-gradient(
-                ellipse at top left,
-                $complementary-color-4,
-                $complementary-color-2
-            );
+        @include comp-gradient;
         a {
-            color: $theme-color;x
+            color: $theme-color;
             &:hover {
                 background-color: $complementary-color-4;
                 color: $theme-color;
