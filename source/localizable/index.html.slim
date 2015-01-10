@@ -3,8 +3,11 @@ layout: layout
 ---
 
 = partial "cta"
-= partial :homepage_slider
+#home
+  = partial :homepage_slider
 #pysanka
   = partial "showcase/showcase"
-= partial "index/events", locals: { event: data.events.first }
-= partial "index/about"
+#events
+  = partial "index/events", locals: { event: data.events.first }
+#about
+  = partial "index/about"

@@ -24,11 +24,20 @@ $(document).ready(function() {
     }
     setCTAButton();
 
+    $('.menu-button').on('click', function(e){
+        e.preventDefault();
+        var scrollto = this.dataset.scroll;
+        var offset = $("#"+scrollto).offset().top;
+        $('html, body').animate({
+            scrollTop: $("#"+scrollto).offset().top
+        }, 300);
+    });
+
     $('#cta').on('click', function(e){
         e.preventDefault();
         $('html, body').animate({
             scrollTop: $("#pysanka").offset().top
-        }, 700);
+        }, 500);
     });
     $(window).scroll(function(){
         if($(window).scrollTop() < 20){

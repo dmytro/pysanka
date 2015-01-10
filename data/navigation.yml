@@ -5,21 +5,22 @@
     en: Home
     uk: Повернутися
     ja: ホーム
+  scroll_to: "home"
 -
   title:
     en: Events
     uk: Події
     ja: イベント
-  href: "index.html#events"
+  scroll_to: "events"
 -
   title:
     en: Products
     uk: Продукти
     ja: プロダクト
-  href: "index.html#pysanka"
+  scroll_to: "pysanka"
 -
   title:
     en:  About
     uk: Про нас
     ja: 私たちに関しては
-  href: "index.html#about"
+  scroll_to: "about"
