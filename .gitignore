@@ -25,3 +25,4 @@ Thumbs.db
 build.tar.gz
 .#*
 source/stylesheets/main.css.less
+.sass-cache
