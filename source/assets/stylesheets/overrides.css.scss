@@ -129,6 +129,18 @@
     }
 }
 
+.btn::after {
+        display:block;
+        content:attr(title);
+        font-weight:bold !important;
+        height:1px;
+        color:transparent;
+        overflow:hidden;
+        visibility:hidden;
+        margin-bottom:-1px;
+        margin-top:-1px;
+}
+
 .btn-alter-op {
     background-color:  $btn-alt2-color-op5 !important;
     color: #ffffff !important;
@@ -137,4 +149,8 @@
         color: #ffffff !important;
         font-weight: bold;
     }
+}
+
+.btn-rounded {
+    border-radius: 2em;
 }

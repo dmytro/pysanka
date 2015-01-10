@@ -14,17 +14,43 @@
 
 $(document).ready(function() {
 
+
+    // Call to action button
+    // --------------------------------------------
+    function setCTAButton() {
+        var width = $("#cta").width();
+        var bodywidth = $(window).width();
+        $("#cta").css({left: (bodywidth - width)/2});
+    }
+    setCTAButton();
+
+    $('#cta').on('click', function(e){
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $("#pysanka").offset().top
+        }, 700);
+    });
+    $(window).scroll(function(){
+        if($(window).scrollTop() < 20){
+            $("#cta").fadeIn("slow");
+        }
+        else {
+            $("#cta").fadeOut("slow");
+
+        }
+    });
+
+
     function setTopDiv () {
         var pixelsFromTheTop = $(".mainmenu-wrapper").height();
         $(".section-top").parent().parent().css({ 'margin-top': pixelsFromTheTop });
     };
     setTopDiv();
 
+
     $('.dropdown-toggle').dropdown();
 
-
     $.material.init();
-
 
     $('#rotator').cycle({
         fx: 'fade',
@@ -44,6 +70,8 @@ $(document).ready(function() {
     var bodyheight = $(window).height();
     $("#sequence").height(bodyheight);
 
+    // To TOP button
+    //
     $("#toTop").css("display", "none");
     $(window).scroll(function(){
         if($(window).scrollTop() > 0){
@@ -66,4 +94,5 @@ $(document).resize(function() {
     var bodyheight = $(window).height();
     $("#sequence").height(bodyheight);
     setTopDiv();
+    setCTAButton();
 });

@@ -82,6 +82,15 @@ $caviar: CaviarDreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
     right: 20px;
 }
 
+#cta {
+    font-size: 24pt;
+    display: inline-block;
+    position: fixed;
+    top: 20%;
+    left: 30%;
+    z-index: 9999;
+}
+
 #language-select {
 
     img {
