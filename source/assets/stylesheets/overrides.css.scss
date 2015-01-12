@@ -66,6 +66,14 @@
   background-size: cover;
 }
 
+.section.section-breadcrumbs {
+    padding: 0;
+    .section {
+        padding: 0;
+        padding-top: 20px;
+    }
+} //.section-breadcrumbs-main
+
 .sequence-pagination li {
     border: 4px solid $slider-color;
 }

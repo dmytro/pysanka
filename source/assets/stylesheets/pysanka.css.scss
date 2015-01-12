@@ -133,6 +133,10 @@ $caviar: CaviarDreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
         font-weight: bold;
         text-decoration: none;
         color: rgba(0,0,0, .2);
+        @media (max-width: 479px){
+            float: none;
+            width: 100%;
+        }
     }
     h1, h2, h3, h4, h5, h6 {
         text-align: center;
