@@ -25,12 +25,12 @@ $(document).ready(function() {
     setCTAButton();
 
     $('.menu-button').on('click', function(e){
-        e.preventDefault();
         var scrollto = this.dataset.scroll;
         var offset = $("#"+scrollto).offset().top;
-        $('html, body').animate({
-            scrollTop: $("#"+scrollto).offset().top
-        }, 300);
+        if (offset) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: offset }, 300);
+        }
     });
 
     $('#cta').on('click', function(e){

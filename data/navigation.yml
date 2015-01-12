@@ -6,21 +6,25 @@
     uk: Повернутися
     ja: ホーム
   scroll_to: "home"
+  href: "/"
 -
   title:
     en: Events
     uk: Події
     ja: イベント
   scroll_to: "events"
+  href: "index.html#events"
 -
   title:
     en: Products
     uk: Продукти
     ja: プロダクト
   scroll_to: "pysanka"
+  href: "index.html#pysanka"
 -
   title:
     en:  About
     uk: Про нас
     ja: 私たちに関しては
   scroll_to: "about"
+  href: "index.html#about"
