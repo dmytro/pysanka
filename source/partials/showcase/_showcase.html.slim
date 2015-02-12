@@ -1,15 +1,22 @@
-.section.section-breadcrumbs.section-breadcrumbs-main
+.section.section-breadcrumbs.section-breadcrumbs-main[class="#{locals[:full] ? 'section-top' : ''}"]
   .section
     .container
       .row
         .col-md-12
           a[name="pysanka" id="pysanka"]
-          h1 Писанки
-          a.btn.btn-default[href="#"]
-            = t "products.see_all"
-            i.fa.fa-arrow-right.fa-lg<
+          h1 = t "products.pysanky"
+          - if locals[:full]
+            p &nbsp;
+          - else
+            a.btn.btn-default[href="#{localized_href "/products"}"]
+              = t "products.see_all"
+              i.fa.fa-arrow-right.fa-lg<
 .section
   .container
+    - if locals[:full]
+      .row
+        = partial :paginate, locals: { items: Showcase::Items.items, current: Showcase::Items.items.first, showitems: 20}
     .row
-      - showcase(6).each do |item|
+      - number = locals[:full] ? 24 : 6
+      - showcase(number).each do |item|
         = partial "showcase/showbox", locals: { item: item }

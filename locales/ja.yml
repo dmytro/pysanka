@@ -5,11 +5,12 @@ ja:
   read_more: 続きを読む
   products:
     see_all: すべての製品
+    pysanky: プィサンカ
   events:
     title: イベント
     see_all: その他のイベント
-    where: TODO За адресою
-    when: TODO Час
+    where: 場所
+    when: 時間
   footer:
     contacts: コンタクト
     email: E-mail
@@ -24,4 +25,4 @@ ja:
     procing: 価格設定
     faq: よくある質問
   cta:
-    go_to: Show me more! TODO
+    go_to: 見せて！
