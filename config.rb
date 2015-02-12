@@ -61,10 +61,14 @@ helpers do
   def locale_prefix
     case I18n.locale
     when :en
-      ""
+      "/"
     else
       "/#{I18n.locale.to_s}"
     end
+  end
+
+  def localized_href(href)
+    "#{locale_prefix}/#{href}".gsub("//", "/")
   end
 end
 
