@@ -11,6 +11,7 @@ en:
     see_all: Other events
     where: Address
     when: Date
+    price: Price
   footer:
     contacts: Contact us
     email: Email

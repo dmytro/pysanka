@@ -11,6 +11,8 @@ ja:
     see_all: その他のイベント
     where: 場所
     when: 時間
+    price: 金額
+
   footer:
     contacts: コンタクト
     email: E-mail

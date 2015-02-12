@@ -141,6 +141,12 @@ $caviar: CaviarDreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
     h1, h2, h3, h4, h5, h6 {
         text-align: center;
         color: #222222;
+        &.tall {
+            padding: {
+                top: 1ex;
+                bottom: 1ex;
+            }
+        }
     }
 
     &.section-breadcrumbs-main,
@@ -200,7 +206,7 @@ h1,h2,h3,h4,h5,h6 {
     width: 100% !important;
     .text {
         max-width: 50%;
-        background-color: rgba(255,255,255,.6);
+        background-color: rgba(255,255,255,.8);
         padding: 2ex;
         /* @media screen and (max-width: 479px) { */
         /*     max-width: 100%; */

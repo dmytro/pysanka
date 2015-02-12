@@ -1,7 +1,8 @@
 tr
   td.event-date= l event.date
+  td= l event.title
   td= truncate(l(event.description), length: 120)
-  td.event-venue.hidden-xs l event.address
-  td.event-price.hidden-xs  l event.price
+  td.event-venue.hidden-xs =l event.address
+  td.event-price.hidden-xs =l event.price
   td
-    a.btn.btn-sm.btn-theme.event-more[href="event_#{index}"] Read more
+    a.btn.btn-sm.btn-theme.event-more[href="#{localized_href "event_#{index}"}"] Read more

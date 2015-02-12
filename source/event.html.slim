@@ -8,7 +8,7 @@ layout: layout
     .container
       .row
         .col-md-12
-          h1= l event.title
+          h1.tall= l event.title
 
 .section
   .container
@@ -23,7 +23,15 @@ layout: layout
               =< l event.address
             li
               b= t "events.when"
+              | :
               =< l event.date
+              |,
+              =< l event.time
+            - if event.price
+              li
+                b= t "events.price"
+                | :
+                =< l event.price
           =l event.description
         hr
         .google_maps

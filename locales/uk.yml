@@ -11,6 +11,8 @@ uk:
     see_all: Минулі події
     where: За адресою
     when: Час
+    price: Вартість
+
   footer:
     contacts: Наші контакти
     email: Електронна пошта
