@@ -55,7 +55,8 @@ helpers do
 
   # Translate strings that are not part of /locale/ directory.
   def l(key)
-    key.is_a?(Hash) ? key[I18n.locale.to_s] : key
+    ((key.is_a?(Hash) ? key[I18n.locale.to_s] : key) || "")
+      .gsub("\n", "<p>")
   end
 
   def locale_prefix
