@@ -17,7 +17,7 @@ $(document).ready(function() {
 
     // Call to action button
     // --------------------------------------------
-    function setCTAButton() {
+    var setCTAButton = function () {
         var width = $("#cta").width();
         var bodywidth = $(window).width();
         $("#cta").css({left: (bodywidth - width)/2});
@@ -50,7 +50,7 @@ $(document).ready(function() {
     });
 
 
-    function setTopDiv () {
+    var setTopDiv = function  () {
         var pixelsFromTheTop = $(".mainmenu-wrapper").height();
         $(".section-top").parent().parent().css({ 'margin-top': pixelsFromTheTop });
     };
@@ -96,12 +96,13 @@ $(document).ready(function() {
         event.preventDefault();
         $("html, body").animate({ scrollTop:0 }, "slow");
     });
-});
 
 
-$(document).resize(function() {
-    var bodyheight = $(window).height();
-    $("#sequence").height(bodyheight);
-    setTopDiv();
-    setCTAButton();
+    $(window).resize(function() {
+        var bodyheight = $(window).height();
+        $("#sequence").height(bodyheight);
+        setTopDiv();
+        setCTAButton();
+    });
+
 });
