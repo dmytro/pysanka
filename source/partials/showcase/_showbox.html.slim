@@ -5,8 +5,9 @@
 
     .portfolio-info-fade
       ul
-        li.portfolio-project-name= l item.title
-        li= l item.subtitle
-        li= l item.summary
-        li.read-more
-          a.btn.btn-theme[href="#{locale_prefix}/#{item.url}"]= t :read_more
+        li.portfolio-project-name=truncate( l( item.title), length: 50)
+        li= truncate(l(item.subtitle), length: 50)
+        li= truncate(l(item.summary), length: 120)
+        - if item.url
+          li.read-more
+            a.btn.btn-theme[href="#{locale_prefix}/#{item.url}"]= t :read_more
