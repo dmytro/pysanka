@@ -12,6 +12,7 @@ en:
     where: Address
     when: Date
     price: Price
+    read_more: Read more
   footer:
     contacts: Contact us
     email: Email

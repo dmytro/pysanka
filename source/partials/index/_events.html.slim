@@ -13,16 +13,20 @@
     .row
 .container
   .row.well
-    h1= l event.title
-    ul
-      li
-        b= t "events.where"
-        =< l event.address
-      li
-        b= t "events.when"
-        =< l event.date
-    hr
-    .col-md-6.col-sm-6
-      p= l event.description
-    .col-md-6.col-sm-6
-      iframe[width="400" height="300" frameborder="0" style="border:0" src="#{event['map']}"]
+    .row
+      h1.centered= l event.title
+      ul
+        li
+          b= t "events.where"
+          =< l event.address
+        li
+          b= t "events.when"
+          =< l event.date
+          |,
+          =< l event.time
+      hr
+    .row
+      .col-md-6.col-md-6
+        p= l event.description
+      .col-md-6.col-md-6
+        iframe[width="400" height="300" frameborder="0" style="border:0" src="#{event.google_map}"]

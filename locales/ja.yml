@@ -12,6 +12,7 @@ ja:
     where: 場所
     when: 時間
     price: 金額
+    read_more: 続き
 
   footer:
     contacts: コンタクト

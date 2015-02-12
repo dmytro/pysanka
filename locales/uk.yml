@@ -12,6 +12,7 @@ uk:
     where: За адресою
     when: Час
     price: Вартість
+    read_more: Детальніше
 
   footer:
     contacts: Наші контакти
