@@ -56,7 +56,7 @@ helpers do
   # Translate strings that are not part of /locale/ directory.
   def l(key, split: false)
     string = ((key.is_a?(Hash) ? key[I18n.locale.to_s] : key) || "")
-    if
+    if split
       string.gsub(/\n+/, "<p>")
     else
       string

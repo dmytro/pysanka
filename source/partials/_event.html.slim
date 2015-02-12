@@ -1,7 +1,7 @@
 tr
   td.event-date= l event.date
   td= l event.title
-  td= truncate(l(event.description), length: 80)
+  td.hidden-xs= truncate(l(event.description), length: 80)
   td.event-venue.hidden-xs =l event.address
   td.event-price.hidden-xs =l event.price
   td
