@@ -2,9 +2,11 @@
   button.btn.btn-theme.btn-raised.dropdown-toggle[title="#{current_language.display_name} W" data-toggle="dropdown" aria-expanded="true"]
     = image_tag "flags/#{current_language.flag}"
     =< current_language.display_name
+
   ul.dropdown-menu[role="menu" aria-labelledby="language"]
-    - data.languages.each do |lang,config|
+
+    - data.languages.each do |lang,lang_data|
       li[role="presentation"]
         a[role="menuitem" href="/#{current_with_locale(lang)}"]
-          = image_tag "flags/#{config.flag}", alt: "#{config.display_name}"
-          =< config.display_name
+          = image_tag "flags/#{lang_data.flag}", alt: "#{lang_data.display_name}"
+          =< lang_data.display_name
