@@ -165,6 +165,7 @@ configure :build do
   ignore(/^assets\/stylesheets\/(?!all).*\.css/)
   ignore(/^assets\/javascripts\/(?!all).*\.js/)
   ignore(%r{^assets/stylesheets/colorschemas/.*})
+  ignore(%r{^assets/images/homepage-slider/pysanka-.*\.jpg$})
 
 
   # if ENV['CDN_HOST']
