@@ -42,15 +42,20 @@ helpers do
     data.languages[I18n.locale]
   end
 
+  def current_without_locale
+    current_page.url
+    .sub(%r{^/(en|ja|uk)},'')
+  end
+
+  # config.available_locales.map(&:to_s).join("|")
+
   def current_with_locale(locale)
-    case I18n.locale
-    when :en
-      "#{locale}#{current_page.url}"
+    if locale == I18n.default_locale.to_s
+      current_without_locale
     else
-      current_page.url
-        .sub(%r{^/#{I18n.locale.to_s}}, (locale.to_s == "en" ? '' : locale.to_s))
-        .sub(%r{^/}, "")
+      "/#{locale}/#{current_without_locale}"
     end
+      .gsub(%r{/+}, "/")
   end
 
   # Translate strings that are not part of /locale/ directory.
