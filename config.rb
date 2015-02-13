@@ -73,8 +73,9 @@ helpers do
   end
 
   def localized_href(href)
-    "#{locale_prefix}/#{href}".gsub("//", "/")
+    "/#{locale_prefix}/#{href}".gsub(%r{/+}, "/")
   end
+
 end
 
 # --------------------------------------------
@@ -105,6 +106,12 @@ Showcase::Items.list.each do |dir|
 end
 
 
+helpers do
+  def showcase_item_link(item)
+    "<a href='#{localized_href item.url}'>#{item.basename.to_i}</a>"
+  end
+end
+
 # --------------------------------------------
 # Events full description
 # --------------------------------------------
@@ -134,6 +141,7 @@ data.events.each_index do |number|
 end
 
 configure :build do
+  activate :relative_assets
   # activate :directory_indexes
   activate :sprockets
   activate :minify_css
