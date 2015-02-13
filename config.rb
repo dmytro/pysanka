@@ -42,12 +42,14 @@ helpers do
     data.languages[I18n.locale]
   end
 
-  def current_without_locale
-    current_page.url
-    .sub(%r{^/(en|ja|uk)},'')
+  def available_locales_as_regex
+    I18n.config.available_locales.map(&:to_s).join("|")
   end
 
-  # config.available_locales.map(&:to_s).join("|")
+  def current_without_locale
+    current_page.url
+    .sub(%r{^/(#{ available_locales_as_regex})},'')
+  end
 
   def current_with_locale(locale)
     if locale == I18n.default_locale.to_s
@@ -69,8 +71,7 @@ helpers do
   end
 
   def locale_prefix
-    case I18n.locale
-    when :en
+    if I18n.locale == I18n.default_locale
       "/"
     else
       "/#{I18n.locale.to_s}"
