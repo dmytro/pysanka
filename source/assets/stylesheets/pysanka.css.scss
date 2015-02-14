@@ -307,16 +307,17 @@ h1,h2,h3,h4,h5,h6 {
             }
         }
     }
-}
-#product-sequence .animate-in .product-img {
-    left: 0;
-    margin-left: 100%;
+    .animate-in .product-img {
+        left: 0;
+        margin-left: -200%;
+    }
+
+    .animate-out .product-img {
+        left: 0;
+        margin-right: 500%;
+    }
 }
 
-/* #product-sequence .animate-out .product-img { */
-/*     right: 0; */
-/*     margin-right: 100%; */
-/* } */
 
 .btn-theme {
             @include main-gradient;
