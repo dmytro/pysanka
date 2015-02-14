@@ -21,7 +21,7 @@ ignore '*.less'
 
 activate :livereload
 
-activate :i18n, langs: [:en, :uk, :ja]
+activate :i18n, langs: [:ja, :en, :uk]
 
 activate :directory_indexes
 
@@ -48,7 +48,7 @@ helpers do
 
   def current_without_locale
     current_page.url
-    .sub(%r{^/(#{ available_locales_as_regex})},'')
+    .sub(%r{^/(#{ available_locales_as_regex})/},'/')
   end
 
   def current_with_locale(locale)
@@ -96,14 +96,14 @@ Showcase::Items.list.each do |dir|
     @lang = :uk
   end
 
-  proxy "/ja/item_#{dir}.html", "product.html",
+  proxy "/item_#{dir}.html", "product.html",
     locals: { item: ::Showcase::Item.new(dir), lang: :ja },
     ignore: true do
     ::I18n.locale = :ja
     @lang = :ja
   end
 
-  proxy "item_#{dir}.html", "product.html",
+  proxy "/en/item_#{dir}.html", "product.html",
     locals: { item: ::Showcase::Item.new(dir), lang: :en },
     ignore: true do
     ::I18n.locale = :en
@@ -131,14 +131,14 @@ data.events.each_index do |number|
     @lang = :uk
   end
 
-  proxy "/ja/event_#{number}.html", "event.html",
+  proxy "/event_#{number}.html", "event.html",
     locals: { event: data.events[number], lang: :ja },
     ignore: true do
     ::I18n.locale = :ja
     @lang = :ja
   end
 
-  proxy "event_#{number}.html", "event.html",
+  proxy "/en/event_#{number}.html", "event.html",
     locals: { event: data.events[number], lang: :en },
     ignore: true do
     ::I18n.locale = :en
