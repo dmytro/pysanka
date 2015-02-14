@@ -1,5 +1,5 @@
 .dropdown#language-select
-  button.btn.btn-theme.btn-raised.dropdown-toggle[title="#{current_language.display_name} W" data-toggle="dropdown" aria-expanded="true"]
+  a.btn.btn-theme.btn-raised.dropdown-toggle[title="#{current_language.display_name} W" data-toggle="dropdown" aria-expanded="true"]
     = image_tag "flags/#{current_language.flag}"
     =< current_language.display_name
 

@@ -162,3 +162,37 @@
 .btn-rounded {
     border-radius: 2em;
 }
+
+#language-select > a {
+        min-width: 200px;
+        line-height: 1em;
+        @media screen and (max-width: 979px) {
+            padding: {
+                bottom: 5px;
+                top: 5px;
+            }
+            min-width: inherit;
+        }
+            img {
+                width: 70px;
+                height: auto;
+                margin-bottom: 5px;
+            }
+}
+
+#language-select {
+    @media screen and (max-width: 479px) {
+        margin-top: -10px;
+    }
+    a {
+       @media screen and (max-width: 479px) {
+            line-height: 1.1em;
+            font-size: 120%;
+            width: 100%;
+            padding: {
+                bottom: 7px;
+                top: 7px;
+            }
+       }
+    }
+}
