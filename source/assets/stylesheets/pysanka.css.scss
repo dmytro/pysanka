@@ -208,18 +208,20 @@ h1,h2,h3,h4,h5,h6 {
         max-width: 50%;
         background-color: rgba(255,255,255,.8);
         padding: 2ex;
+        z-index: 100;
+
+        hr {
+            border-top: 1px solid #ccc;
+        }
         /* @media screen and (max-width: 479px) { */
         /*     max-width: 100%; */
         /* } */
     }
-
-    img.display-img {
-        top: 20%;
-        float: right;
-        position: relative;
-        height: auto !important;
-        min-height: 450px;
-        max-height: 450px !important;
+    .display-img {
+        background-size: contain;
+        min-height: 400px;
+        background-repeat: no-repeat;
+        background-position: right top;
     }
     @media screen and (max-width: 979px) {
         .text {

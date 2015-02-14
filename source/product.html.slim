@@ -29,8 +29,9 @@ layout: layout
             = l item.subtitle
           li
             = l item.summary
-          li
-            = l item.description
+          - if item.description
+            li
+              = l item.description
       a.btn.btn-micro.btn-raised.btn-theme[href="javascript:history.back()"]
         =t :back
 .section

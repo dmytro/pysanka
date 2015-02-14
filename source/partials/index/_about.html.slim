@@ -9,9 +9,7 @@
           /   i.fa.fa-arrow-right.fa-lg<
 .section
   .container
-    .row.well.large-image-background.large-image-about
-      h1= l data.about.title
-      = image_tag "about/about_img1.png", class: "display-img"
-      .container
-        .text
-          =l data.about.description
+    .row-fluid.well.large-image-background.large-image-about
+      .text.col-md-6
+        =l data.about.description
+      .display-img.col-md-6[style="background-image: url(#{image_path "about/about_img1.png"})"]
