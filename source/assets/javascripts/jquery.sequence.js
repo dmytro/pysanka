@@ -1,6 +1,6 @@
-/*
+/*!
 Sequence.js (http://www.sequencejs.com)
-Version: 1.0.1
+Version: 1.0.1.2
 Author: Ian Lunn @IanLunn
 Author URL: http://www.ianlunn.co.uk/
 Github: https://github.com/IanLunn/Sequence
@@ -8,7 +8,7 @@ Github: https://github.com/IanLunn/Sequence
 This is a FREE script and is available under a MIT License:
 http://www.opensource.org/licenses/mit-license.php
 
-Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless otherwise stated.
+Sequence.js and its dependencies are (c) Ian Lunn Design 2012 unless otherwise stated.
 
 Sequence also relies on the following open source scripts:
 
@@ -134,6 +134,12 @@ Sequence also relies on the following open source scripts:
 
 		var preloadTheseFramesLength = self.settings.preloadTheseFrames.length; //how many frames to preload?
 		var preloadTheseImagesLength = self.settings.preloadTheseImages.length; //how many single images to load?
+
+		// Useful for integration with js module loaders (e.g. requireJS) where window.load may have fired prior to this script executing.
+		// Should be used with care.  Modernizr normally likes to execute in the <head> tags.
+		if (self.settings.windowLoaded === true) {
+			windowLoaded = self.settings.windowLoaded;
+		}
 
 		function saveImagesToArray(length, srcOnly) {
 			var imagesToPreload = []; //saves the images that are to be preloaded
@@ -592,22 +598,22 @@ Sequence also relies on the following open source scripts:
 		//Go to the frame ahead of the current one
 		next: function() {
 			var self = this;
-			self.nextFrameID = (self.currentFrameID !== self.numberOfFrames) ? self.currentFrameID + 1 : 1; //work out the next frame
+			id = (self.currentFrameID !== self.numberOfFrames) ? self.currentFrameID + 1 : 1; //work out the next frame ID
 			if(self.active === false || self.active === undefined) { //if Sequence isn't currently animating...
-				self.goTo(self.nextFrameID, 1); //go to the next frame
+				self.goTo(id, 1); //go to the next frame
 			}else{ //if Sequence is currently animating...
-				self.goTo(self.nextFrameID, 1, true); //go immediately to the next frame (ignoring the transition threshold)
+				self.goTo(id, 1, true); //go immediately to the next frame (ignoring the transition threshold)
 			}
 		},
 
 		//Go to the frame prior to the current one
 		prev: function() {
 			var self = this;
-			self.nextFrameID = (self.currentFrameID === 1) ? self.numberOfFrames : self.currentFrameID - 1; //work out the prev frame
+			id = (self.currentFrameID === 1) ? self.numberOfFrames : self.currentFrameID - 1; //work out the prev frame ID
 			if(self.active === false || self.active === undefined) { //if Sequence isn't currently animating...
-				self.goTo(self.nextFrameID, -1); //go to the prev frame
+				self.goTo(id, -1); //go to the prev frame
 			}else{ //if Sequence is currently animating...
-				self.goTo(self.nextFrameID, -1, true); //go immediately to the prev frame (ignoring the transition threshold)
+				self.goTo(id, -1, true); //go immediately to the prev frame (ignoring the transition threshold)
 			}
 		},
 
@@ -620,10 +626,10 @@ Sequence also relies on the following open source scripts:
 		*/
 		goTo: function(id, direction, ignoreTransitionThreshold) {
 			var self = this;
-			id = parseFloat(id); //convert the id to a number just in case
+			self.nextFrameID = parseFloat(id);
 			var transitionThreshold = (ignoreTransitionThreshold === true) ? 0 : self.settings.transitionThreshold; //if transitionThreshold is to be ignored, set it to zero
 
-			if((id === self.currentFrameID) //if the id of the frame the user is trying to go to is the same as the currently active one...
+			if((self.nextFrameID === self.currentFrameID) //if the next frame the user is trying to go to is the same as the currently active one...
 			|| (self.settings.navigationSkip && self.navigationSkipThresholdActive) //or navigationSkip is enabled and the navigationSkipThreshold is active (which prevents frame from being navigated too fast)...
 			|| (!self.settings.navigationSkip && self.active) //or navigationSkip is disbaled but Sequence is animating...
 			|| (!self.transitionsSupported && self.active) //or Sequence is in fallback mode and Sequence is animating...
@@ -649,19 +655,19 @@ Sequence also relies on the following open source scripts:
 				self._resetAutoPlay(); //stop any autoPlay timer that may be running
 
 				if(direction === undefined) { //if no direction to navigate was defined...
-					self.direction = (id > self.currentFrameID) ? 1 : -1; //work out which way to go based on what frame is currently active
+					self.direction = (self.nextFrameID > self.currentFrameID) ? 1 : -1; //work out which way to go based on what frame is currently active
 				}else{
 					self.direction = direction; //go to the developer defined frame
 				}
 
 				self.currentFrame = self.canvas.children(".animate-in"); //find which frame is active -- the frame currently being viewed (and about to be animated out)
-				self.nextFrame = self.frames.eq(id-1); //grab the next frame
+				self.nextFrame = self.frames.eq(self.nextFrameID-1); //grab the next frame
 				self.currentFrameChildren = self.currentFrame.children();	//save the child elements of the current frame
 				self.nextFrameChildren = self.nextFrame.children(); //save the child elements of the next frame
 
 				if(self.pagination !== undefined) { //if using pagination...
 					self.paginationLinks.removeClass('current'); //remove the 'current' class from all pagination links
-					$(self.paginationLinks[id-1]).addClass('current'); //add the 'current' class to the current frame
+					$(self.paginationLinks[self.nextFrameID-1]).addClass('current'); //add the 'current' class to the current frame
 				}
 
 				if(self.transitionsSupported) { //if the browser supports CSS3 transitions...
@@ -806,7 +812,7 @@ Sequence also relies on the following open source scripts:
 						break;
 					}
 				}
-				self.currentFrameID = id; //make the currentFrameID the same as the one that is to animate in
+				self.currentFrameID = self.nextFrameID; //make the currentFrameID the same as the one that is to animate in
 			}
 		},
 
@@ -974,19 +980,21 @@ Sequence also relies on the following open source scripts:
 						var transitionFunction = convertTimingFunctionToCubicBezier(transitionFunction); //convert the keyword to cubic-bezier()
 					}
 
-					var cubicBezier = transitionFunction.replace('cubic-bezier(', '').replace(')', '').split(','); //remove the CSS function and just get the array
-					$.each(cubicBezier, function(index, value) { //for each point that makes up the cubic bezier...
-						cubicBezier[index] = parseFloat(value); //turn the point into a number (rather than text)
-					});
+					if (self.settings.reverseEaseWhenNavigatingBackwards) {
+						var cubicBezier = transitionFunction.replace('cubic-bezier(', '').replace(')', '').split(','); //remove the CSS function and just get the array
+						$.each(cubicBezier, function(index, value) { //for each point that makes up the cubic bezier...
+							cubicBezier[index] = parseFloat(value); //turn the point into a number (rather than text)
+						});
 
-					//reverse the cubic bezier
-					var reversedCubicBezier = [
-					1 - cubicBezier[2],
-					1 - cubicBezier[3],
-					1 - cubicBezier[0],
-					1 - cubicBezier[1]
-					];
-					transitionFunction = 'cubic-bezier('+reversedCubicBezier+')'; //add the reversed cubic bezier back into a CSS function
+						//reverse the cubic bezier
+						var reversedCubicBezier = [
+						1 - cubicBezier[2],
+						1 - cubicBezier[3],
+						1 - cubicBezier[0],
+						1 - cubicBezier[1]
+						];
+						transitionFunction = 'cubic-bezier('+reversedCubicBezier+')'; //add the reversed cubic bezier back into a CSS function
+					}
 
 					var frameDuration = duration + delay; //get the overall duration of the element
 
@@ -1059,10 +1067,10 @@ Sequence also relies on the following open source scripts:
 					if(defaultOption === ".sequence-preloader") { //if setting up the preloader...
 						self._defaultPreloader(self.container, self.transitionsSupported, self.animationPrefix); //get the default preloader
 					}
-					return $(defaultOption); //return the default element
+					return $(defaultOption, self.container); //return the default element
 
 				default: //if using a developer defined selector...
-					return $(devOption); //return the developer defined element
+					return $(devOption, self.container); //return the developer defined element
 			}
 		},
 
@@ -1197,8 +1205,10 @@ Sequence also relies on the following open source scripts:
 		animateStartingFrameIn: false, //Whether the first frame should animate in to its active position
 		transitionThreshold: false, //The delay between a frame animating out and the next animating in (false = no delay, true = the next frame will animate in only once the current frame has animated out)
 		reverseAnimationsWhenNavigatingBackwards: true, //Whether animations should be reversed when a user navigates backwards by clicking a previous button/swiping/pressing the left key
+		reverseEaseWhenNavigatingBackwards: true, //Whether the ease function should be reversed when a user navigates backwards
 		preventDelayWhenReversingAnimations: false, //Whether a delay should be removed when animations are reversed. This delay is removed by default to prevent user confusion
 		moveActiveFrameToTop: true, //Whether a frame should be given a higher `z-index` than other frames whilst it is active, to bring it above the others
+		windowLoaded: false, //Set to true if it is known that the window.onload event has already fired.  Useful with javascript module loaders (such as RequireJS).
 
 		//Autoplay Settings
 		autoPlay: false, //Cause Sequence to automatically change between frames over a period of time, as defined in autoPlayDelay
