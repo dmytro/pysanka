@@ -18,16 +18,19 @@ layout: layout
       .col-sm-6
         .portfolio-item.full-size
           .portfolio-image
-            #product-sequence
-              ul.sequence-canvas
-                - item.images.each do |image|
-                  li
-                    = image_tag image.url, class: "product-img"
-              .sequence-pagination-wrapper
-                ul.sequence-pagination
+            -if item.images.count > 1
+              #product-sequence
+                ul.sequence-canvas
                   - item.images.each do |image|
                     li
-              .product-sequence-background
+                      = image_tag image.url, class: "product-img"
+                .sequence-pagination-wrapper
+                  ul.sequence-pagination
+                    - item.images.each do |image|
+                      li
+            - else
+              = image_tag item.images.first.url, class: "product-img"
+
       .portfolio-item-description.col-sm-6
         h3= l item.title
         ul
