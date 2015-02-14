@@ -10,23 +10,30 @@
             i.fa.fa-arrow-right.fa-lg<
 .section
   .container
-    .row
-.container
-  .row.well
-    .row
-      h1.centered= l event.title
-      ul
-        li
-          b= t "events.where"
-          =< l event.address
-        li
-          b= t "events.when"
-          =< l event.date
-          |,
-          =< l event.time
-      hr
-    .row
-      .col-md-6.col-md-6
-        p= l event.description, split: true
-      .col-md-6.col-md-6
-        iframe[width="400" height="300" frameborder="0" style="border:0" src="#{event.google_map}"]
+    .row.well.large-image-background.large-image-event
+      .text.col-md-6
+        h1= l event.title
+        h2= l event.subtitle
+        ul
+          li
+            b= t "events.when"
+            | :
+            =< l event.date
+            |,
+            =< l event.time
+          li
+            b= t "events.where"
+            =< l event.address
+          - if event.price
+            li
+              b= t "events.price"
+              | :
+              =< l event.price
+        hr
+        =l event.description, split: true
+      .col-md-6.display-img[style="background-image: url(#{image_path "event/event.png"})"]
+
+      - if event.google_map
+        .google_maps.well.col-sm-12.col-md-8
+          iframe[width="100%" height="300" frameborder="0" style="border:0"
+            src="#{event.google_map}"]
