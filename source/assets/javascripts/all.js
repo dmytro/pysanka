@@ -9,11 +9,22 @@
 //= require modernizr-2.6.2-respond-1.1.0.min
 //= require material.min
 //= require ripples.min
-//= require jquery.cycle.all
 //= require jquery.scrollupformenu.js
 
 $(document).ready(function() {
 
+
+    var productOptions = {
+        nextButton: false,
+        prevButton: false,
+        pagination: true,
+        animateStartingFrameIn: false,
+        autoPlay: true,
+        autoPlayDelay: 3000,
+        preloader: true
+    };
+
+    var sequence2 = $("#product-sequence").sequence(productOptions).data("sequence");
 
     // Call to action button
     // --------------------------------------------
@@ -60,11 +71,6 @@ $(document).ready(function() {
     $('.dropdown-toggle').dropdown();
 
     $.material.init();
-
-    $('#rotator').cycle({
-        fx: 'fade',
-        speed: 3000
-    });
 
     $('.mainmenu-wrapper').scrollUpMenu({
         waitTime: 200,

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    
+
 	//Homepage Slider
     var options = {
         nextButton: false,
@@ -10,7 +10,7 @@ $(document).ready(function(){
         autoPlayDelay: 3000,
         preloader: true
     };
-    
+
     var mySequence = $("#sequence").sequence(options).data("sequence");
 
     //Main menu Initialization
