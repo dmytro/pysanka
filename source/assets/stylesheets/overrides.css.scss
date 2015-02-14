@@ -173,19 +173,12 @@
             }
             min-width: inherit;
         }
-            img {
-                width: 70px;
-                height: auto;
-                margin-bottom: 5px;
-            }
 }
 
 #language-select {
     @media screen and (max-width: 479px) {
         margin-top: -10px;
-    }
-    a {
-       @media screen and (max-width: 479px) {
+        a {
             line-height: 1.1em;
             font-size: 120%;
             width: 100%;
@@ -193,6 +186,11 @@
                 bottom: 7px;
                 top: 7px;
             }
-       }
+            img {
+                width: 70px;
+                height: auto;
+                margin-bottom: 5px;
+            }
+        }
     }
 }
