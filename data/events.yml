@@ -53,3 +53,54 @@
 
   google_map: |
     https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3241.863185354201!2d139.6987378!3d35.6557423!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b56e1e97aef%3A0x3f3747a7f85e84f4!2zSmFwYW4sIOOAkjE1MC0wMDMxIFTFjWt5xY0tdG8sIFNoaWJ1eWEta3UsIFNha3VyYWdhb2thY2jFjSwgMzDiiJIyIOahnOS4mOeUuuaWveiorQ!5e0!3m2!1sen!2s!4v1423721858868
+
+# =============================================================================
+-
+  title:
+    en: Master classes with Roshen Valentine Sales
+    uk: Писанкові класи, ярмарок Рошен
+    ja: プィサンキのワークショップ (渋谷)
+  # price:
+  #   en: 3000 yen
+  #   ja: 3000 円
+  #   uk: 3000 йєн
+  date:
+    en: February 5th - 14th, 2015
+    uk: з 5 до 14 лютого 2015
+    ja: ２０１５年２月 5-14日
+  time:
+    en: 11:00 AM - 09:00PM
+    uk: з 11:00 до 21:00
+    ja: 11:00 から　21:00 まで
+  address:
+    en: 8 F, Hikarie, Shibuya
+    uk: 8 F, Hikarie, Shibuya
+    ja: 東京都, 渋谷駅, ヒカリエ、８F
+  photos: hikarie_2015
+  title_photo: 1514946_1713961138830155_5370187870580637015_n.jpg
+  description:
+    ja: |
+
+      セイント・‪バレンタイン‬ デーに ‪ウクライナ‬ の ‪チョコレート‬ を買いに、‪#‎渋谷‬ にお越しください！
+
+      ウクライナの菓子メーカー「Roshen Japan（ロシェン）」が、2015年2月5日から14日までの期間限定で渋谷ヒカリエ8階特設会場に初登場します。「ロシェン」は、チョコレートやキャンディー、ビスケット、ケーキなどを扱うウクライナ最大の製菓メーカーです。
+
+      期間中はウクライナのコーナーで菓子を販売しているだけでなく、ウクライナのプィーサンキの手作り体験も行います。
+
+      営業時間は11時から21時まで。
+
+    uk: |
+      До Дня Св.Валентина завітайте на ярмарок українських солодощів в Хікаріе, Шібуя!
+
+      Компанія, що представляє українські солодощі "Рошен" в ‪#‎Японії‬ запрошує на ярмарку всіх бажаючих в центр Хікаріе, ст.Шібуя з 5 по 14 лютого на 8 поверсі.
+
+      Окрім солодощів в залі проводяться майстер-класи з писанкарства.
+      Для відвідувачів крамниця відкрита з 11 до 21 години.
+
+    en: |
+      Visit St. Valentine Ukrainian sweets and chocolate fair at Hikarie Shibuya.
+      Ukrainian chockolate and sweets maker Roshen (Roshen Japan) helds first St. Valentine sweets fair at Hikarie building, Shibuya from February 5th until 14th.
+
+      Also at the fair will be working Ukrainian pysanka egg painting master classes.
+
+      Shops are open from 11am o 9pm.
