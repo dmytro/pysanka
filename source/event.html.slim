@@ -9,5 +9,11 @@ layout: layout
       .row
         .col-md-12
           h1.tall= l event.title
+          a.btn.btn-default.btn-rounded[style="float: left;"]
+            i.fa.fa-arrow-left.fa-lg<
+          a.btn.btn-default.btn-rounded[style="float: right;"]
+            i.fa.fa-arrow-right.fa-lg<
+
+
 
 = partial :event_view, locals: { event: event, no_title: true }
