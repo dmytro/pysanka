@@ -4,6 +4,9 @@ Slim::Engine.disable_option_validator!
 
 #$. << "./lib"
 require "#{File.dirname(__FILE__)}/lib/showcase"
+require "#{File.dirname(__FILE__)}/lib/events"
+activate :events
+
 I18n.enforce_available_locales = true
 # general settings
 set :encoding, 'utf-8'
