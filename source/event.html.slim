@@ -10,31 +10,4 @@ layout: layout
         .col-md-12
           h1.tall= l event.title
 
-.section
-  .container
-    .row.well.large-image-background.large-image-event
-      h1= l event.subtitle
-      .text.col-md-6
-        ul
-          li
-            b= t "events.where"
-            =< l event.address
-          li
-            b= t "events.when"
-            | :
-            =< l event.date
-            |,
-            =< l event.time
-          - if event.price
-            li
-              b= t "events.price"
-              | :
-              =< l event.price
-        hr
-        =l event.description, split: true
-      .col-md-6.display-img[style="background-image: url(#{image_path "event/event.png"})"]
-
-      - if event.google_map
-        .google_maps.well.col-sm-12.col-md-8
-          iframe[width="100%" height="300" frameborder="0" style="border:0"
-            src="#{event.google_map}"]
+= partial :event_view, locals: { event: event, no_title: true }
