@@ -8,6 +8,6 @@ layout: layout
 #pysanka
   = partial "showcase/showcase"
 #events
-  = partial "index/events", locals: { event: data.events.first }
+  = partial "index/next_event", locals: { event: data.events.first }
 #about
   = partial "index/about"

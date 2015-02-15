@@ -16,4 +16,4 @@ layout: layout
         table.events-list
           tbody
             - data.events.each_with_index do |event, index|
-              = partial :event, locals: { event: event , index: index}
+              = partial :events_list, locals: { event: event , index: index}
