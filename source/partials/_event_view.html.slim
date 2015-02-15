@@ -1,7 +1,7 @@
 .section
   .container
     .row.well.large-image-background.large-image-event
-      .text.col-md-6
+      .text.well.col-md-6
         - unless locals[:no_title]
           h1= l event.title
           - if event.subtitle
@@ -23,7 +23,14 @@
               =< l event.price
         hr
         =l event.description, split: true
-      .col-md-6.display-img[style="background-image: url(#{image_path "event/event.png"})"]
+
+      /
+      - my_image_path = if event.photos && event.title_photo
+      - "events/#{event.photos}/#{event.title_photo}"
+      - else
+        - "event/event.png"
+
+      .col-md-6.display-img[style="background-image: url(#{image_path my_image_path})"]
 
       - if event.google_map
         .google_maps.well.col-sm-12.col-md-8
