@@ -1,6 +1,8 @@
-.row
-  .container
-    <link href="//rawgithub.com/ashleydw/lightbox/master/dist/ekko-lightbox.css" rel="stylesheet">
+<link href="//rawgithub.com/ashleydw/lightbox/master/dist/ekko-lightbox.css" rel="stylesheet">
 
-    h1 Slides
-    = next_event
+.row
+  .container-fluid
+    .col-md-12.col-md-shift-1#thumbs
+      center
+        - event.images.each do |image|
+          = image_tag image.thumb, width: 70, height: 70
