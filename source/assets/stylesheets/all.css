@@ -9,4 +9,7 @@
 *= require ripples.min
 *= require overrides
 *= require pysanka
+*= require ekko-lightbox
+*= require lightbox-pysanka
+
 */

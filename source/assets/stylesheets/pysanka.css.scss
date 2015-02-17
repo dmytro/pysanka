@@ -271,6 +271,22 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
+#thumbs {
+    margin-top: 1ex;
+    background-color: rgba(200,200,200,.6);
+    padding: 5px;
+    z-index: 100;
+    border: 5px solid white;
+    border-radius: 5px;
+    img {
+        margin: {
+            left: 1px;
+            right: 1px;
+    }
+        border: 2px solid #FFF;
+        border-radius: 5px;
+    }
+}
 
 #product-sequence {
     overflow: hidden;

@@ -1,8 +1,9 @@
-<link href="//rawgithub.com/ashleydw/lightbox/master/dist/ekko-lightbox.css" rel="stylesheet">
+<link href="http://rawgithub.com/ashleydw/lightbox/master/dist/ekko-lightbox.css" rel="stylesheet">
 
 .row
   .container-fluid
-    .col-md-12.col-md-shift-1#thumbs
+    .col-md-12#thumbs
       center
-        - event.images.each do |image|
-          = image_tag image.thumb, width: 70, height: 70
+        div
+          - event.images.each do |image|
+            = link_to image_tag(image.thumb, width: 70, height: 70), image_path(image.thumb), "data-toggle" => "lightbox", "data-gallery" => "event"

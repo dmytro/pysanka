@@ -9,10 +9,22 @@
 //= require modernizr-2.6.2-respond-1.1.0.min
 //= require material.min
 //= require ripples.min
-//= require jquery.scrollupformenu.js
+//= require jquery.scrollupformenu
+//= require ekko-lightbox-min
 
 $(document).ready(function() {
 
+    // Lightbox modal slides
+    // --------------------------------------------
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox({
+			always_show_close: true,
+            left_arrow_class: "fa fa-arrow-left fa-lg",
+            right_arrow_class: "fa fa-arrow-right fa-lg"
+        }
+        );
+    });
 
     var productOptions = {
         nextButton: false,
