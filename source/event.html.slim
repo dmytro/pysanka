@@ -9,10 +9,13 @@ layout: layout
       .row
         .col-md-12
           h1.tall= l event.title
-          a.btn.btn-default.btn-rounded[style="float: left;"]
-            i.fa.fa-arrow-left.fa-lg<
-          a.btn.btn-default.btn-rounded[style="float: right;"]
-            i.fa.fa-arrow-right.fa-lg<
+          - if event.has_prev?
+            a.btn.btn-default.btn-rounded[style="float: left;" href="#{localized_href event.prev.url}"]
+              i.fa.fa-arrow-left.fa-lg<
+
+          - if event.has_next?
+            a.btn.btn-default.btn-rounded[style="float: right;" href="#{localized_href event.next.url}"]
+              i.fa.fa-arrow-right.fa-lg<
 
 
 
