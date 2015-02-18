@@ -1,31 +1,64 @@
 @import "variables.scss";
 @import "font-awesome";
-// components.less
-.mainmenu li.logo-wrapper a{
-  padding-right: 10px;
-  margin-right: 10px;
-  border-right: 1px solid $theme-color;
-}
-
 .mainmenu-wrapper.well {
-    padding-top: 0px;
-    padding-right: 10px;
     z-index: 10000;
 }
 
-/* .menuextras { */
-/*     margin-bottom: -30px; */
-/* } */
-// row 2148
-.mainmenu {
-	/* first level ul style */
-	>ul, .mainmenu-submenu-inner {
-		>li {
-			>a{
-				padding: .2em 1.2em .2em 1.2em;
-				margin-right: .5em;
+@media screen and (max-width: 767px) {
+    .mainmenu-wrapper.well {
+        background-color: transparent;
+        box-shadow: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 0;
+
+        a {
+            font-size: 21pt;
+        }
+        .navbar .navbar-toggle {
+            border: 3px solid $theme-color;
+            span {
+                background-color: $theme-color;
+                color: $theme-color;
             }
         }
+    }
+}
+
+.dropdown-toggle {
+    margin-bottom: 0px;
+}
+.dropdown-menu {
+    margin-top: -.5ex;
+    background-color: $theme-color;
+
+    a.btn {
+        margin: 3px;
+        img {
+            float: left;
+            padding: 5px;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    position: fixed;
+    top: 0;
+    .mainmenu-wrapper.well {
+        padding-top: 0px;
+        padding-right: 10px;
+        padding-bottom: 0;
+    }
+    .navbar .navbar-nav>li {
+        margin-right: 2ex;
+        a {
+            padding: {
+            top: 5px;
+            bottom: 5px;
+        }
+        }
+
     }
 }
 
@@ -98,18 +131,6 @@
     }
 }
 
-@media screen and (max-width: 979px) {
-    .mainmenu li.logo-wrapper {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 479px) {
-	.mainmenu > ul > li {
-        border: 0;
-    }
-}
-
 .btn-white:not(.btn-link):not(.btn-flat) {
     background-color: #ffffff;
 }
@@ -161,36 +182,4 @@
 
 .btn-rounded {
     border-radius: 2em;
-}
-
-#language-select > a {
-        min-width: 200px;
-        line-height: 1em;
-        @media screen and (max-width: 979px) {
-            padding: {
-                bottom: 5px;
-                top: 5px;
-            }
-            min-width: inherit;
-        }
-}
-
-#language-select {
-    @media screen and (max-width: 479px) {
-        margin-top: -10px;
-        a {
-            line-height: 1.1em;
-            font-size: 120%;
-            width: 100%;
-            padding: {
-                bottom: 7px;
-                top: 7px;
-            }
-            img {
-                width: 70px;
-                height: auto;
-                margin-bottom: 5px;
-            }
-        }
-    }
 }

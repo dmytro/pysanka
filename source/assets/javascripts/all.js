@@ -84,15 +84,20 @@ $(document).ready(function() {
 
     $.material.init();
 
-    $('.mainmenu-wrapper').scrollUpMenu({
-        waitTime: 200,
-        transitionTime: 150,
-        menuCss: { 'position': 'fixed',
-                   'top': '0',
-                   'width': '100%',
-                   'background-color': "rgba(255,255,255,0.5)"
-                 }
-    })
+    var hideMenu = function() {
+        if ( $(window).width() > 767 ) {
+            $('.mainmenu-wrapper').scrollUpMenu({
+                waitTime: 200,
+                transitionTime: 150,
+                menuCss: { 'position': 'fixed',
+                           'top': '0',
+                           'width': '100%',
+                           'background-color': "rgba(255,255,255,0.5)"
+                         }
+            })
+        }
+    }
+    hideMenu();
 
     var bodyheight = $(window).height();
     $("#sequence").height(bodyheight);
@@ -121,6 +126,7 @@ $(document).ready(function() {
         $("#sequence").height(bodyheight);
         setTopDiv();
         setCTAButton();
+        hideMenu();
     });
 
 });

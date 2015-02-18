@@ -1,10 +1,21 @@
 .mainmenu-wrapper.well
   .container
-    nav#mainmenu.mainmenu
-      / = partial :menu_extra
-      ul
-        = partial :logo
-        - data.navigation.each do |link|
-          = partial "navigation/menu_link", locals: { link: link }
-        li.pull-right.col-xs-12.col-sm-2
-          = partial "navigation/language_select"
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed[type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"]
+            span.sr-only
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+
+        .collapse.navbar-collapse#navbar
+          a.navbar-brand href="#"
+            = image_tag "logo_pysanka_60.png", width: 40
+
+          ul.nav.navbar-nav
+            - data.navigation.each do |link|
+              = partial "navigation/menu_link", locals: { link: link }
+          ul.nav.navbar-nav.navbar-right
+            = partial "navigation/language_select"
