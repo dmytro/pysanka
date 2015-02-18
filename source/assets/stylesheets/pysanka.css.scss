@@ -196,18 +196,24 @@ h1,h2,h3,h4,h5,h6 {
         margin-top: 68px;
     }
     @media screen and (max-width: 479px) {
-        margin-top: 258px;
+        margin-top: 0;
     }
 }
 
 
 .large-image-background {
+    @media (max-width: 479px) {
+        background: none;
+        background-image: none;
+    }
+
     background-size: cover;
     background-repeat: no-repeat;
     height: auto;
     min-height: 450px;
     width: 100% !important;
     .text {
+
         max-width: 50%;
         background-color: rgba(255,255,255,.75);
         padding: 2ex;
@@ -342,6 +348,22 @@ h1,h2,h3,h4,h5,h6 {
 
 .btn-theme {
     @include main-gradient;
+}
+
+@media screen and (max-width: 768px) {
+    .section {
+        .container {
+            padding-left: 0;
+            padding-right: 0;
+            .row.well {
+                padding-left: 0;
+                padding-right: 0;
+                margin-left: 0;
+                margin-right: 0;
+
+            }
+        }
+    }
 }
 /* @media (min-width: 768px) { */
 /* @media (max-width: 500px){ */
