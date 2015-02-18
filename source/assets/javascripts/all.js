@@ -92,6 +92,7 @@ $(document).ready(function() {
                 menuCss: { 'position': 'fixed',
                            'top': '0',
                            'width': '100%',
+                           'padding': 0,
                            'background-color': "rgba(255,255,255,0.5)"
                          }
             })
