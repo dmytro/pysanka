@@ -1,6 +1,6 @@
 a.btn.btn-theme.btn-raised.dropdown-toggle[role="button" title="#{current_language.display_name} W" data-toggle="dropdown" aria-expanded="false"]
     = image_tag "flags/#{current_language.flag}"
-    =< current_language.display_name
+    span.display-name=< current_language.display_name
 
 ul.dropdown-menu[role="menu" aria-labelledby="language"]
 
@@ -9,4 +9,4 @@ ul.dropdown-menu[role="menu" aria-labelledby="language"]
     li
       a.btn.btn-theme[role="menuitem" href="#{current_with_locale(lang)}"]
         = image_tag "flags/#{lang_data.flag}", alt: "#{lang_data.display_name}"
-        =< lang_data.display_name
+        span.display-name=< lang_data.display_name
