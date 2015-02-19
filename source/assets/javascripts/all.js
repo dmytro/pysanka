@@ -20,8 +20,8 @@ $(document).ready(function() {
         event.preventDefault();
         $(this).ekkoLightbox({
 			always_show_close: true,
-            left_arrow_class: "fa fa-arrow-left fa-lg",
-            right_arrow_class: "fa fa-arrow-right fa-lg"
+            left_arrow_class: ".fa .fa-arrow-left",
+            right_arrow_class: ".fa .fa-arrow-right"
         }
         );
     });
