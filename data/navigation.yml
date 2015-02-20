@@ -2,9 +2,9 @@
 -
   href: "index.html"
   title:
-    en: Home
-    uk: Повернутися
-    ja: ホーム
+    en: Maister
+    uk: Майстер
+    ja: マイスター
   scroll_to: "home"
   href: "/"
 -
@@ -17,8 +17,8 @@
 -
   title:
     en: Products
-    uk: Продукти
-    ja: プロダクト
+    uk: Вироби
+    ja: 品物
   scroll_to: "pysanka"
   href: "index.html#pysanka"
 -

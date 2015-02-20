@@ -7,8 +7,39 @@ see_all:
   en: See all
   ja: すべてを参照してください。
   uk: Детальніше
-description: |
+description:
 
-  Наталя Ковальова віддає улюбленому писанкарству майже весь свій вільний час. Нові та традиційні українські візерунки в поєднанні з японськими мотивами народжуються з під її руки. Вже неодноразово проводилися майстер класи як для дорослих, так і для самих маленьких відвідувачів.
+  uk: |
+    Проект «Майстер»  присвячений присвячений популяризації традиційного українського мистецтва та ремесел.
 
-  Наталя також викладає мову в японських початкових школах та школах для дорослих. Мовного бар'єру при навчанні не існує і всі залишаються задоволеними.
+    Наш проект орієнтується перш за все на японську аудиторію, українських майстрів та майстринь, що проживають у Японії, українців у Японії.
+
+    Ми починаємо проект з розділу писанок та писанкарства. З часом проект буде наповнюватися та поповнюватися  іншими матеріалами та розділами, включаючи, але не обмежуючися, розділами про ляльки-мотанки, петриківський живопис, рецепти та майстер класи української кухні, образотворчого мистецтва. тощо.
+
+    Майданчик проекту <a href="http://maister.co">http://maister.co</a> ведеться трьома мовами — українською, японською та англійською. Більшість матеріалів будуть перекладатися всіма трьома.
+
+    Проект ведеться на засадах програмного забезпечення з відкритими кодами. Ми запрошуємо до участі в проекті як розробників, дизайнерів і перекладачів, так і українських майстринь та майстрів з усіх напрямків українських ремесел.
+
+  en: |
+
+    Project «Maister» is dedicated to the promotion of the traditional Ukrainian arts and crafts. Our project is targeted towards first of all Japanese audience, Ukrainian artists residing in Japan, Ukrainians in Japan.
+
+    We start our project with the section about Pysanka and pysanka art. As time go, project will be expanded and replenished with other sections, including, but not limiting to «motanka» dolls, «Petrykivka» style painting, recipies and master classes of the Ukrainian cuisine, fine arts, etc.
+
+    Web page  <a href="http://maister.co">http://maister.co</a> is three-lingual, built with Ukrainian, Japanese and English languages. Most of the materials will be translated in all three languages.
+
+    Project is build using Opes Source Software and built on the principles of the OSS. We invite participants and partners — developers, designers and translators, as well as Ukrainian crafts artists from all areas of Ukrainian arts.
+
+  ja: |
+
+    Project «Maister» is dedicated to the promotion of the traditional Ukrainian arts and crafts. Our project is targeted towards first of all Japanese audience, Ukrainian artists residing in Japan, Ukrainians in Japan.
+
+    We start our project with the section about Pysanka and pysanka art. As time go, project will be expanded and replenished with other sections, including, but not limiting to «motanka» dolls, «Petrykivka» style painting, recipies and master classes of the Ukrainian cuisine, fine arts, etc.
+
+    Web page  <a href="http://maister.co">http://maister.co</a> is three-lingual, built with Ukrainian, Japanese and English languages. Most of the materials will be translated in all three languages.
+
+    Project is build using Opes Source Software and built on the principles of the OSS. We invite participants and partners — developers, designers and translators, as well as Ukrainian crafts artists from all areas of Ukrainian arts.
+
+# Наталя Ковальова віддає улюбленому писанкарству майже весь свій вільний час. Нові та традиційні українські візерунки в поєднанні з японськими мотивами народжуються з під її руки. Вже неодноразово проводилися майстер класи як для дорослих, так і для самих маленьких відвідувачів.
+
+# Наталя також викладає мову в японських початкових школах та школах для дорослих. Мовного бар'єру при навчанні не існує і всі залишаються задоволеними.
