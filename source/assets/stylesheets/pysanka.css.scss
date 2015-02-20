@@ -94,39 +94,6 @@ $caviar: CaviarDreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
     z-index: 9999;
 }
 
-#language-select {
-
-    img {
-        padding: 0 1em 0 1em;
-    }
-    button {
-        line-height: 1ex;
-        text-align: left;
-        padding-left: .2em;
-        padding-right: 1.2em;
-        letter-spacing: 0.075ex;
-        &:hover {
-            letter-spacing: 0;
-        }
-    }
-
-    ul {
-        margin-top: .2em;
-        padding: 0;
-    }
-    a {
-        background-color: $theme-color2;
-        color: #fff;
-        text-align: left;
-        padding-left: .2em;
-        padding-right: 1.2em;
-        &:hover {
-            background-color: $theme-color;
-            color: #666666;
-            font-weight: bold;
-        }
-    }
-}
 
 .section.section-breadcrumbs {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
