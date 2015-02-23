@@ -1,31 +1,28 @@
 class Events < Middleman::Extension
   class Event
 
-    def initialize(yaml, index)
+    def initialize(yaml)
       @yaml = yaml
-      @index = index
+      @index = yaml[:index]
     end
 
-    attr_reader :yaml, :data, :index
+    attr_reader :yaml, :index
 
     def data
-      OpenStruct.new yaml[index]
+      OpenStruct.new yaml
     end
 
     def link
       "event/#{index}"
     end
+    alias :url :link
 
     delegate :title, :date, :time, :subtitle, :description, :address,
       :photos, :title_photo, :price, :google_map,
       to: :data
 
     def count
-      yaml.count
-    end
-
-    def url
-      "/event_#{index}"
+      ::Events.count
     end
 
     def has_next?
