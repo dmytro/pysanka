@@ -10,6 +10,7 @@ gem "slim"
 # gem 'sprockets-less'
 # gem 'sprockets-sass'
 # gem 'compass', '~>1.x.x'
+gem 'rmagick', '~>2.3'
 
 gem 'therubyracer'
 # gem "bootstrap-sass", :require => false

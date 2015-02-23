@@ -1,26 +1,28 @@
 # -*- coding: utf-8 -*-
 class Events < Middleman::Extension
 
-  ASSETS = "source/assets/images"
-  ASSETS_URL = "events"
-  PATH = "#{ASSETS}/events"
-
   DATA_PATH="data/events"
 
   require_relative "events/event"
+  require_relative "events/image"
 
   @@events = nil
 
   def initialize(app, options_hash={}, &block)
     super
     app.set :events, events
+    @root = app.root
   end
+  attr_reader :root
 
   def yaml
     @yaml ||= Dir.glob("#{DATA_PATH}/**/data.yml")
-      .sort { |a,b| b<=> a }
+      .sort { |a,b| b.to_i <=> a.to_i }
       .map do |file|
-      YAML.load_file(file).merge(file: file, index: file.split("/")[-2].to_i)
+      YAML.load_file(file).merge(
+        file: file,
+        index: file.split("/")[-2].to_i
+      )
     end
   end
 
@@ -30,9 +32,12 @@ class Events < Middleman::Extension
     end
   end
 
-  # def after_configuration
-  #   binding.pry
-  # end
+  def after_configuration
+    events.map do |event|
+      event.images.map(&:configure)
+    end
+  end
+
 
   class << self
 

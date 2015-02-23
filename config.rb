@@ -129,7 +129,7 @@ events.each do |event|
 
 
   proxy "/uk/event/#{event.index}.html", "event.html",
-    locals: { event: event, lang: :ua },
+    locals: { event: event, lang: :uk },
     ignore: true do
     ::I18n.locale = :uk
     @lang = :uk
