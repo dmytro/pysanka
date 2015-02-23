@@ -5,5 +5,5 @@ tr
   td.event-venue.hidden-xs =l event.address
   td.event-price.hidden-xs =l event.price
   td
-    a.btn.btn-sm.btn-theme.event-more[href="#{localized_href "event_#{index}"}"]
+    a.btn.btn-sm.btn-theme.event-more[href="#{localized_href event.link}"]
       = t "events.read_more"

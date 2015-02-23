@@ -127,21 +127,21 @@ end
 activate :showcase
 events.each_index do |number|
 
-  proxy "/uk/event_#{number}.html", "event.html",
+  proxy "/uk/event/#{number}.html", "event.html",
     locals: { event: events[number], lang: :ua },
     ignore: true do
     ::I18n.locale = :uk
     @lang = :uk
   end
 
-  proxy "/event_#{number}.html", "event.html",
+  proxy "/event/#{number}.html", "event.html",
     locals: { event: events[number], lang: :ja },
     ignore: true do
     ::I18n.locale = :ja
     @lang = :ja
   end
 
-  proxy "/en/event_#{number}.html", "event.html",
+  proxy "/en/event/#{number}.html", "event.html",
     locals: { event: events[number], lang: :en },
     ignore: true do
     ::I18n.locale = :en
