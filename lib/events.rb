@@ -63,7 +63,7 @@ class Events < Middleman::Extension
     end
 
     def current
-      events.values.first
+      events.values.last
     end
   end
 
