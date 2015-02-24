@@ -21,49 +21,58 @@ class Events < Middleman::Extension
       :photos, :title_photo, :price, :google_map,
       to: :data
 
-    def index_s
-      "%04d" % index
+    def events
+      Events.events
+    end
+
+    def dirs
+      Events.dirs
+    end
+
+    def dir
+      yaml[:dir]
+    end
+
+    def next_dir
+      dirs[dirs.find_index(dir)+1]
+    end
+
+    def prev_dir
+      idx = dirs.find_index(dir)-1
+      return idx < 0 ? nil : dirs[idx]
+    end
+
+    def next
+      events[next_dir]
+    end
+
+    def prev
+      events[prev_dir]
+    end
+
+    def next?
+      !send(:next).nil?
+    end
+
+    def prev?
+      !prev.nil?
     end
 
     def count
       ::Events.count
     end
 
-    def has_next?
-      index + 1 < count
-    end
-
-    def has_prev?
-      index > 0
-    end
-
     def first
-      Events.events.first
+      events.values.first
     end
 
     def last
-      Events.events.last
-    end
-
-    def next
-      Events.events[index+1] if has_next?
-    end
-
-    def prev
-      Events.events[index-1] if has_prev?
+      events.values.last
     end
 
     def files
-      @files ||= Dir["#{::Events::DATA_PATH}/#{index_s}/*.{jpg,png,gif,JPG,PNG,GIF}"]
+      @files ||= Dir["#{::Events::DATA_PATH}/#{dir}/*.{jpg,png,gif,JPG,PNG,GIF}"]
     end
-
-    # def files
-    #   @files ||= originals.map { |x| x.sub("#{::Events::PATH}", ::Events::ASSETS_URL ) }
-    # end
-
-    # def thumbs
-    #   @thumbs ||= files.grep(/_thumb\./)
-    # end
 
     def images
       @images ||= files.map do |path|
