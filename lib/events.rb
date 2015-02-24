@@ -17,29 +17,38 @@ class Events < Middleman::Extension
 
   def yaml
     @yaml ||= Dir.glob("#{DATA_PATH}/**/data.yml")
-      .sort { |a,b| b.to_i <=> a.to_i }
-      .map do |file|
-      YAML.load_file(file).merge(
+      .reduce({}) do |yaml, file|
+
+      index = file.split("/")[-2]
+      yaml[index] = YAML.load_file(file).merge(
         file: file,
-        index: file.split("/")[-2].to_i
+        index: index.to_i,
+        dir: index
       )
+
+      yaml
     end
   end
 
   def events
-    @@events ||= yaml.map do |hash|
-      Event.new hash
+    @@events ||= yaml.reduce({}) do |events,event|
+      events[event.first] = Event.new event.last
+      events
     end
   end
 
   def after_configuration
-    events.map do |event|
+    events.values do |event|
       event.images.map(&:configure)
     end
   end
 
 
   class << self
+
+    def dirs
+      events.keys
+    end
 
     def count
       events.count

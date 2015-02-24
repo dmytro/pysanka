@@ -15,5 +15,5 @@ layout: layout
       .col-md-12
         table.events-list
           tbody
-            - events.each_with_index do |event, index|
-              = partial :events_list, locals: { event: event , index: index}
+            - events.values.reverse.each do |event|
+              = partial :events_list, locals: { event: event }

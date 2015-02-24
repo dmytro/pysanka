@@ -125,7 +125,7 @@ end
 # Events full description
 # --------------------------------------------
 activate :showcase
-events.each do |event|
+events.values.each do |event|
 
 
   proxy "/uk/event/#{event.index}.html", "event.html",
