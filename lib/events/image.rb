@@ -1,6 +1,6 @@
 class Events < Middleman::Extension
 
-  require 'RMagick'
+#  require 'RMagick'
   class Event
 
     DIMENSIONS = [640,480]
@@ -35,11 +35,11 @@ class Events < Middleman::Extension
         Dir.mkdir dir unless Dir.exists? dir
       end
 
-      def copy_file(dimensions=DIMENSIONS)
+      def copy_file(dimensions=DIMENSIONS, fill: false)
         unless exists?
           mk_target_dir
           ::Magick::Image.read(original).first
-            .resize_to_fill(*dimensions)
+            .send((fill ? :resize_to_fit : :resize_to_fill), *dimensions)
             .write(file)
         end
       end
@@ -49,7 +49,7 @@ class Events < Middleman::Extension
       end
 
       class Thumb < Image
-        THUMB=[150,150]
+        THUMB=[75,75]
         def file
           @file ||= original
             .sub(::Events::DATA_PATH, "#{ ASSETS }/events")
@@ -57,7 +57,7 @@ class Events < Middleman::Extension
         end
 
         def copy_file
-          super THUMB
+          super THUMB, fill: true
         end
 
       end
