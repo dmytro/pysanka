@@ -56,6 +56,14 @@ class DataFolders < Middleman::Extension
 
   class << self
 
+    # def assets_basename
+    #   @@assets_basename
+    # end
+
+    # def data_path
+    #   @@data_path
+    # end
+
     def dirs
       data_folders.keys
     end
@@ -64,9 +72,9 @@ class DataFolders < Middleman::Extension
       data_folders.count
     end
 
-    def data_folders
-      @@data_folders
-    end
+    # def data_folders
+    #   @@data_folders
+    # end
 
     def index
       "/events"
