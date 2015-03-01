@@ -71,7 +71,7 @@ class DataFolders < Middleman::Extension
     end
 
     def files
-      @files ||= Dir["#{::DataFolders::DATA_PATH}/#{dir}/*.{jpg,png,gif,JPG,PNG,GIF}"]
+      @files ||= Dir["#{::DataFolders.data_path}/#{dir}/*.{jpg,png,gif,JPG,PNG,GIF}"]
     end
 
     def images

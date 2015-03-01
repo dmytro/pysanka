@@ -1,13 +1,9 @@
 class DataFolders < Middleman::Extension
-
-#  require 'RMagick'
   class DataFolder
 
     DIMENSIONS = [640,480]
 
     ASSETS = "source/assets/images"
-    ASSETS_URL = "events"
-    PATH = "#{ASSETS}/events"
 
     class Image
       def initialize(original)
@@ -15,8 +11,12 @@ class DataFolders < Middleman::Extension
       end
       attr_reader :original
 
+      def path
+        "#{ASSETS}/#{DataFolders.assets_basename}"
+      end
+
       def file
-        @file ||= original.sub(::DataFolders::DATA_PATH, "#{ ASSETS }/events")
+        @file ||= original.sub(::DataFolders.data_path, DataFolders.assets_basename)
       end
 
       def exists?
@@ -24,7 +24,7 @@ class DataFolders < Middleman::Extension
       end
 
       def url
-        @url ||= file.sub(PATH, ASSETS_URL )
+        @url ||= file.sub(path, DataFolders.assets_basename )
       end
 
       def dir
@@ -57,7 +57,7 @@ class DataFolders < Middleman::Extension
         SIZE=[75,75]
         def file
           @file ||= original
-            .sub(::DataFolders::DATA_PATH, "#{ ASSETS }/events")
+            .sub(::DataFolders.data_path, DataFolders.assets_basename)
             .sub(/\.(jpg|gif|png)$/i,'_thumb.\1')
         end
 

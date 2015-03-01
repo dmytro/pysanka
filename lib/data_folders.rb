@@ -1,22 +1,32 @@
 # -*- coding: utf-8 -*-
 class DataFolders < Middleman::Extension
 
-  DATA_PATH="data/events"
+  option :data_path,       "", "Relative path to data"
+  option :assets_basename, "", "Relative URL of assets"
 
   require_relative "data_folders/data_folder"
   require_relative "data_folders/image"
 
   @@data_folders = nil
+  @@data_path = nil
+  @@assets_basename = nil
+
+  cattr_accessor :assets_basename, :data_path, :data_folders
 
   def initialize(app, options_hash={}, &block)
     super
-    app.set :data_folders, data_folders
+
+    @@data_path = options.data_path
+    @@assets_basename = options.assets_basename
+
     @root = app.root
+
+    app.set :data_folders, data_folders
   end
   attr_reader :root
 
   def yaml
-    @yaml ||= Dir.glob("#{DATA_PATH}/**/data.yml")
+    @yaml ||= Dir.glob("#{@@data_path}/**/data.yml")
       .reduce({}) do |yaml, file|
 
       index = file.split("/")[-2]
