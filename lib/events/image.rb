@@ -35,11 +35,11 @@ class Events < Middleman::Extension
         Dir.mkdir dir unless Dir.exists? dir
       end
 
-      def copy_file(dimensions=DIMENSIONS, fill: false)
+      def copy_to_assets(dimensions=DIMENSIONS, resize: :resize_to_fit)
         unless exists?
           mk_target_dir
           ::Magick::Image.read(original).first
-            .send((fill ? :resize_to_fit : :resize_to_fill), *dimensions)
+            .send(resize, *dimensions)
             .write(file)
         end
       end
@@ -48,28 +48,23 @@ class Events < Middleman::Extension
         Thumb.new original
       end
 
+      def configure
+        copy_to_assets
+        thumb.copy_to_assets
+      end
+
       class Thumb < Image
-        THUMB=[75,75]
+        SIZE=[75,75]
         def file
           @file ||= original
             .sub(::Events::DATA_PATH, "#{ ASSETS }/events")
             .sub(/\.(jpg|gif|png)$/i,'_thumb.\1')
         end
 
-        def copy_file
-          super THUMB, fill: true
+        def copy_to_assets
+          super SIZE, resize: :resize_to_fill
         end
-
-      end
-
-
-      def configure
-        copy_file
-        thumb.copy_file
-      end
-
-
+      end # Thumb
     end
-
   end
 end
