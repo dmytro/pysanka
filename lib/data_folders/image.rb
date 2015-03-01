@@ -1,7 +1,7 @@
-class Events < Middleman::Extension
+class DataFolders < Middleman::Extension
 
 #  require 'RMagick'
-  class Event
+  class DataFolder
 
     DIMENSIONS = [640,480]
 
@@ -16,7 +16,7 @@ class Events < Middleman::Extension
       attr_reader :original
 
       def file
-        @file ||= original.sub(::Events::DATA_PATH, "#{ ASSETS }/events")
+        @file ||= original.sub(::DataFolders::DATA_PATH, "#{ ASSETS }/events")
       end
 
       def exists?
@@ -57,7 +57,7 @@ class Events < Middleman::Extension
         SIZE=[75,75]
         def file
           @file ||= original
-            .sub(::Events::DATA_PATH, "#{ ASSETS }/events")
+            .sub(::DataFolders::DATA_PATH, "#{ ASSETS }/events")
             .sub(/\.(jpg|gif|png)$/i,'_thumb.\1')
         end
 

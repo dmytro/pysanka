@@ -4,7 +4,7 @@ Slim::Engine.disable_option_validator!
 
 #$. << "./lib"
 require "#{File.dirname(__FILE__)}/lib/showcase"
-require "#{File.dirname(__FILE__)}/lib/events"
+require "#{File.dirname(__FILE__)}/lib/data_folders"
 
 I18n.enforce_available_locales = true
 # general settings
@@ -121,10 +121,11 @@ helpers do
 end
 
 # --------------------------------------------
-# Events full description
+# DataFolders full description
 # --------------------------------------------
-activate :events
-events.values.each do |event|
+activate :data_folders
+
+data_folders.values.each do |event|
 
   proxy "/uk/event/#{event.index}.html", "event.html",
     locals: { event: event, lang: :uk },

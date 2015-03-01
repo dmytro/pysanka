@@ -1,5 +1,5 @@
-class Events < Middleman::Extension
-  class Event
+class DataFolders < Middleman::Extension
+  class DataFolder
 
     def initialize(yaml)
       @yaml = yaml
@@ -21,12 +21,12 @@ class Events < Middleman::Extension
       :photos, :title_photo, :price, :google_map,
       to: :data
 
-    def events
-      Events.events
+    def data_folders
+      DataFolders.data_folders
     end
 
     def dirs
-      Events.dirs
+      DataFolders.dirs
     end
 
     def dir
@@ -43,11 +43,11 @@ class Events < Middleman::Extension
     end
 
     def next
-      events[next_dir]
+      data_folders[next_dir]
     end
 
     def prev
-      events[prev_dir]
+      data_folders[prev_dir]
     end
 
     def next?
@@ -59,19 +59,19 @@ class Events < Middleman::Extension
     end
 
     def count
-      ::Events.count
+      ::DataFolders.count
     end
 
     def first
-      events.values.first
+      data_folders.values.first
     end
 
     def last
-      events.values.last
+      data_folders.values.last
     end
 
     def files
-      @files ||= Dir["#{::Events::DATA_PATH}/#{dir}/*.{jpg,png,gif,JPG,PNG,GIF}"]
+      @files ||= Dir["#{::DataFolders::DATA_PATH}/#{dir}/*.{jpg,png,gif,JPG,PNG,GIF}"]
     end
 
     def images

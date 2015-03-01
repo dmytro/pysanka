@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-class Events < Middleman::Extension
+class DataFolders < Middleman::Extension
 
   DATA_PATH="data/events"
 
-  require_relative "events/event"
-  require_relative "events/image"
+  require_relative "data_folders/data_folder"
+  require_relative "data_folders/image"
 
-  @@events = nil
+  @@data_folders = nil
 
   def initialize(app, options_hash={}, &block)
     super
-    app.set :events, events
+    app.set :data_folders, data_folders
     @root = app.root
   end
   attr_reader :root
@@ -30,16 +30,16 @@ class Events < Middleman::Extension
     end
   end
 
-  def events
-    @@events ||= yaml.reduce({}) do |events,event|
-      events[event.first] = Event.new event.last
-      events
+  def data_folders
+    @@data_folders ||= yaml.reduce({}) do |data_folders,data_folder|
+      data_folders[data_folder.first] = DataFolder.new data_folder.last
+      data_folders
     end
   end
 
   def after_configuration
-    events.values do |event|
-      event.images.map(&:configure)
+    data_folders.values do |data_folder|
+      data_folder.images.map(&:configure)
     end
   end
 
@@ -47,15 +47,15 @@ class Events < Middleman::Extension
   class << self
 
     def dirs
-      events.keys
+      data_folders.keys
     end
 
     def count
-      events.count
+      data_folders.count
     end
 
-    def events
-      @@events
+    def data_folders
+      @@data_folders
     end
 
     def index
@@ -63,10 +63,10 @@ class Events < Middleman::Extension
     end
 
     def current
-      events.values.last
+      data_folders.values.last
     end
   end
 
 end
 
-::Middleman::Extensions.register(:events, Events)
+::Middleman::Extensions.register(:data_folders, DataFolders)
