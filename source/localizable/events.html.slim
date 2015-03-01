@@ -15,5 +15,5 @@ layout: layout
       .col-md-12
         table.events-list
           tbody
-            - data_folders.values.reverse.each do |event|
+            - events.values.reverse.each do |event|
               = partial :events_list, locals: { event: event }

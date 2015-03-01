@@ -123,9 +123,9 @@ end
 # --------------------------------------------
 # DataFolders full description
 # --------------------------------------------
-activate :data_folders, data_path: "data/events", assets_basename: "events"
+activate :data_folders, data_path: "data/events", assets_basename: "events", namespace: 'events'
 
-data_folders.values.each do |event|
+events.values.each do |event|
 
   proxy "/uk/event/#{event.index}.html", "event.html",
     locals: { event: event, lang: :uk },
