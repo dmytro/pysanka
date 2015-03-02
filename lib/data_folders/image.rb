@@ -12,11 +12,11 @@ class DataFolders < Middleman::Extension
       attr_reader :original
 
       def path
-        "#{ASSETS}/#{DataFolders.assets_basename}"
+        "#{ASSETS}/#{DataFolders.namespace}"
       end
 
       def file
-        @file ||= original.sub(::DataFolders.data_path, DataFolders.assets_basename)
+        @file ||= original.sub(::DataFolders.data_path, path)
       end
 
       def exists?
@@ -24,7 +24,7 @@ class DataFolders < Middleman::Extension
       end
 
       def url
-        @url ||= file.sub(path, DataFolders.assets_basename )
+        @url ||= file.sub(path, DataFolders.namespace )
       end
 
       def dir
@@ -32,11 +32,13 @@ class DataFolders < Middleman::Extension
       end
 
       def mk_target_dir
-        Dir.mkdir dir unless Dir.exists? dir
+        FileUtils.mkdir_p dir
       end
 
       def copy_to_assets(dimensions=DIMENSIONS, resize: :resize_to_fit)
         unless exists?
+          puts "#{ original } -> #{ file }"
+
           mk_target_dir
           ::Magick::Image.read(original).first
             .send(resize, *dimensions)
@@ -57,7 +59,7 @@ class DataFolders < Middleman::Extension
         SIZE=[75,75]
         def file
           @file ||= original
-            .sub(::DataFolders.data_path, DataFolders.assets_basename)
+            .sub(::DataFolders.data_path, path)
             .sub(/\.(jpg|gif|png)$/i,'_thumb.\1')
         end
 

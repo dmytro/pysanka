@@ -123,7 +123,7 @@ end
 # --------------------------------------------
 # DataFolders full description
 # --------------------------------------------
-activate :data_folders, data_path: "data/events", assets_basename: "events", namespace: 'events'
+activate :data_folders, namespace: 'events'
 
 events.values.each do |event|
 

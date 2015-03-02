@@ -1,26 +1,22 @@
 # -*- coding: utf-8 -*-
 class DataFolders < Middleman::Extension
 
-  option :data_path,       "", "Relative path to data"
-  option :assets_basename, "", "Relative URL of assets"
+  # option :data_path,       "", "Relative path to data"
+  # option :assets_basename, "", "Relative URL of assets"
   option :namespace, "", "Name for global variable"
 
   require_relative "data_folders/data_folder"
   require_relative "data_folders/image"
 
-  @@data_folders = nil
-  @@data_path = nil
-  @@assets_basename = nil
+  # @@data_folders = nil
 
-  cattr_accessor :assets_basename, :data_path
+  cattr_accessor :namespace
 
   def initialize(app, options_hash={}, &block)
     super
 
-    @@data_path = options.data_path
-    @@assets_basename = options.assets_basename
-
-    @namespace = options.namespace
+    @namespace  = options.namespace
+    @@namespace = options.namespace
 
     @root = app.root
 
@@ -31,7 +27,8 @@ class DataFolders < Middleman::Extension
   attr_reader :root
 
   def after_configuration
-    data_folders.values do |data_folder|
+    data_folders.values.each do |data_folder|
+      puts "Building data #{data_folder.dir}"
       data_folder.images.map(&:configure)
     end
   end
@@ -43,7 +40,7 @@ class DataFolders < Middleman::Extension
   end
 
   def yaml
-    @yaml ||= Dir.glob("#{@@data_path}/**/data.yml")
+    @yaml ||= Dir.glob("#{self.class.data_path}/**/data.yml")
       .reduce({}) do |yaml, file|
 
       index = file.split("/")[-2]
@@ -65,6 +62,10 @@ class DataFolders < Middleman::Extension
   end
 
   class << self
+    def data_path
+      "data/#{ @@namespace }"
+    end
+
     def dirs
       data_folders.keys
     end
