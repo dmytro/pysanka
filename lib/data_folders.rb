@@ -1,14 +1,10 @@
 # -*- coding: utf-8 -*-
 class DataFolders < Middleman::Extension
 
-  # option :data_path,       "", "Relative path to data"
-  # option :assets_basename, "", "Relative URL of assets"
   option :namespace, "", "Name for global variable"
 
   require_relative "data_folders/data_folder"
   require_relative "data_folders/image"
-
-  # @@data_folders = nil
 
   cattr_accessor :namespace
 
