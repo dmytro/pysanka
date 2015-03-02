@@ -1,4 +1,11 @@
 # -*- coding: utf-8 -*-
+# Example usage:
+#     activate :data_folders, namespace: 'events'
+#
+# 1. Create folders in `./data/events`
+# 2. Each event has own subdirectory: `./data/events/0001`, `./data/events/0002`, ...
+# 3. Each subdirectory should have file `./data/events/0002/data.yml`
+#
 class DataFolders < Middleman::Extension
 
   option :namespace, "", "Name for global variable"
