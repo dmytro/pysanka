@@ -72,8 +72,8 @@ helpers do
     end
   end
 
-  def locale_prefix
-    if I18n.locale == I18n.default_locale
+  def locale_prefix(locale=I18n.locale)
+    if locale == I18n.default_locale
       "/"
     else
       "/#{I18n.locale.to_s}"
@@ -121,33 +121,25 @@ helpers do
 end
 
 # --------------------------------------------
-# DataFolders full description
+# DataFolders - Events
 # --------------------------------------------
 activate :data_folders, namespace: 'events'
 
 events.values.each do |event|
 
-  proxy "/uk/event/#{event.index}.html", "event.html",
-    locals: { event: event, lang: :uk },
-    ignore: true do
-    ::I18n.locale = :uk
-    @lang = :uk
-  end
-
-  proxy "/event/#{event.index}.html", "event.html",
-    locals: { event: event, lang: :ja },
-    ignore: true do
+  proxy "/event/#{event.index}.html",    "event.html", locals: {event: event}, ignore: true do
     ::I18n.locale = :ja
-    @lang = :ja
   end
 
-  proxy "/en/event/#{event.index}.html", "event.html",
-    locals: { event: event, lang: :en },
-    ignore: true do
+  proxy "/uk/event/#{event.index}.html", "event.html", locals: {event: event}, ignore: true do
+    ::I18n.locale = :uk
+  end
+
+  proxy "/en/event/#{event.index}.html", "event.html", locals: {event: event}, ignore: true do
     ::I18n.locale = :en
-    @lang = :en
   end
 end
+# --------------------------------------------
 
 configure :build do
   activate :relative_assets
