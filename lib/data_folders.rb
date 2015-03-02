@@ -25,8 +25,18 @@ class DataFolders < Middleman::Extension
     @root = app.root
 
     app.set @namespace.to_sym, data_folders
+    app.set "#{@namespace}_index".to_sym, "/#{@namespace}"
+    app.set "#{@namespace}_current".to_sym, data_folders.values.last
   end
   attr_reader :root
+
+  def after_configuration
+    data_folders.values do |data_folder|
+      data_folder.images.map(&:configure)
+    end
+  end
+
+  private
 
   def namespace
     @namespace.to_sym
@@ -54,23 +64,7 @@ class DataFolders < Middleman::Extension
     end
   end
 
-  def after_configuration
-    data_folders.values do |data_folder|
-      data_folder.images.map(&:configure)
-    end
-  end
-
-
   class << self
-
-    # def assets_basename
-    #   @@assets_basename
-    # end
-
-    # def data_path
-    #   @@data_path
-    # end
-
     def dirs
       data_folders.keys
     end
@@ -81,14 +75,6 @@ class DataFolders < Middleman::Extension
 
     def data_folders
       @@data_folders
-    end
-
-    def index
-      "/events"
-    end
-
-    def current
-      data_folders.values.last
     end
   end
 
