@@ -76,7 +76,7 @@ helpers do
     if locale == I18n.default_locale
       "/"
     else
-      "/#{I18n.locale.to_s}"
+      "/#{locale.to_s}"
     end
   end
 
@@ -125,19 +125,15 @@ end
 # --------------------------------------------
 activate :data_folders, namespace: 'events'
 
-events.values.each do |event|
+[ :ja, :en, :uk].each do |lang|
+  pref = lang == :ja ? "" : "/#{lang}"
 
-  proxy "/event/#{event.index}.html",    "event.html", locals: {event: event}, ignore: true do
-    ::I18n.locale = :ja
+  events.values.each do |event|
+    proxy "#{pref}/event/#{event.index}.html", "event.html", locals: {event: event}, ignore: true do
+      ::I18n.locale = lang
+    end
   end
 
-  proxy "/uk/event/#{event.index}.html", "event.html", locals: {event: event}, ignore: true do
-    ::I18n.locale = :uk
-  end
-
-  proxy "/en/event/#{event.index}.html", "event.html", locals: {event: event}, ignore: true do
-    ::I18n.locale = :en
-  end
 end
 # --------------------------------------------
 
