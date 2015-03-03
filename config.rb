@@ -86,50 +86,35 @@ helpers do
 
 end
 
-# --------------------------------------------
-# Showcase is Pysanka products lister
-# --------------------------------------------
-activate :showcase
-Showcase::Items.list.each do |dir|
-  proxy "/uk/item_#{dir}.html", "product.html",
-    locals: { item: ::Showcase::Item.new(dir), lang: :ua },
-    ignore: true do
-    ::I18n.locale = :uk
-    @lang = :uk
-  end
-
-  proxy "/item_#{dir}.html", "product.html",
-    locals: { item: ::Showcase::Item.new(dir), lang: :ja },
-    ignore: true do
-    ::I18n.locale = :ja
-    @lang = :ja
-  end
-
-  proxy "/en/item_#{dir}.html", "product.html",
-    locals: { item: ::Showcase::Item.new(dir), lang: :en },
-    ignore: true do
-    ::I18n.locale = :en
-    @lang = :en
-  end
-end
-
-
 helpers do
   def showcase_item_link(item)
     "<a href='#{localized_href item.url}'>#{item.basename.to_i}</a>"
   end
 end
 
-# --------------------------------------------
-# DataFolders - Events
-# --------------------------------------------
+activate :showcase
 activate :data_folders, namespace: 'events'
 
+# --------------------------------------------
+# Generated dynamic pages
+# --------------------------------------------
 [ :ja, :en, :uk].each do |lang|
-  pref = lang == :ja ? "" : "/#{lang}"
+  pref = (lang == :ja) ? "" : "/#{lang}"
 
+  # --------------------------------------------
+  # DataFolders - Events
+  # --------------------------------------------
   events.values.each do |event|
     proxy "#{pref}/event/#{event.index}.html", "event.html", locals: {event: event}, ignore: true do
+      ::I18n.locale = lang
+    end
+  end
+
+  # --------------------------------------------
+  # Showcase is Pysanka products lister
+  # --------------------------------------------
+  Showcase::Items.list.each do |dir|
+    proxy "#{pref}/item_#{dir}.html", "product.html", locals: { item: ::Showcase::Item.new(dir)}, ignore: true do
       ::I18n.locale = lang
     end
   end
