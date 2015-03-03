@@ -31,7 +31,6 @@ class DataFolders < Middleman::Extension
 
   def after_configuration
     data_folders.values.each do |data_folder|
-      puts "Building data #{data_folder.dir}"
       data_folder.images.map(&:configure)
     end
   end
