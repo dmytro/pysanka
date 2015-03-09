@@ -30,17 +30,19 @@
                 / span.small= t "events.price"
                 =< l event.price
 
-            - if event.facebook
-              - Array(event.facebook).flatten.each do |fb|
-                li
-                  i.fa.fa-facebook.fa-2x>
-                  = link_to fb, fb
+            - if locals[:full_page]
 
-            - if event.phone
-              - Array(l event.phone).flatten.each do |ph|
-                li
-                  i.fa.fa-phone.fa-2x>
-                  = ph
+              - if event.facebook
+                - Array(event.facebook).flatten.each do |fb|
+                  li
+                    i.fa.fa-facebook.fa-2x>
+                    = link_to fb, fb
+
+              - if event.phone
+                - Array(l event.phone).flatten.each do |ph|
+                  li
+                    i.fa.fa-phone.fa-2x>
+                    = ph
 
         /
         - my_image_path = if event.photos && event.title_photo
