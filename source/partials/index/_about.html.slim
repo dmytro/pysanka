@@ -7,9 +7,9 @@
           / a.btn.btn-default[href="#{localized_href 'about'}"]
           /   =  l data.about.see_all
           /   i.fa.fa-arrow-right.fa-lg<
-.section
-  .container
-    .row-fluid.well.large-image-background.large-image-about
-      .text.col-md-6
-        =l data.about.description, split: true
-      .display-img.col-md-6[style="background-image: url(#{image_path "about/about_img1.png"})"]
+.large-image-background.large-image-about
+  .section
+
+    .text.col-md-6.well.col-md-offset-1
+      =l data.about.description, split: true
+    .display-img.col-md-4.col-md-offset-1[style="background-image: url(#{image_path "about/about_img1.png"})"]
