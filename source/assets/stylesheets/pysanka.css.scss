@@ -85,12 +85,15 @@ $caviar: CaviarDreams, Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
     right: 20px;
 }
 
+#go_current_event,
 #cta {
     font-size: 24pt;
     display: inline-block;
     position: fixed;
     top: 20%;
     left: 30%;
+    right: 30%;
+    width: auto;
     z-index: 9999;
 }
 
@@ -334,6 +337,24 @@ h1,h2,h3,h4,h5,h6 {
             }
         }
     }
+}
+
+#eventview {
+    ul {
+        list-style-type: none;
+        li {
+            line-height: 2em;
+            i {
+                color: $complementary-color-4;
+                width: 1.5em;
+                line-height: inherit;
+                vertical-align: middle;
+                text-align: center;
+
+            }
+        }
+    }
+
 }
 /* @media (min-width: 768px) { */
 /* @media (max-width: 500px){ */

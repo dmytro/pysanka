@@ -8,6 +8,7 @@ html[lang="en"]
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
     meta[name="description" content="#{l data.page.description}"]
     meta[name="author" content="#{l data.author.name }"]
+    link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
 
     = stylesheet_link_tag "all.css"
     javascript:
@@ -26,7 +27,7 @@ html[lang="en"]
     .container-narrow
       .content
         = yield
-      hr
+
         = partial :footer
         = javascript_include_tag "all.js"
 

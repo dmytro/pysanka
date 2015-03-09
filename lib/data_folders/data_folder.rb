@@ -18,7 +18,7 @@ class DataFolders < Middleman::Extension
     alias :url :link
 
     delegate :title, :date, :time, :subtitle, :description, :address,
-      :photos, :title_photo, :price, :google_map,
+      :photos, :title_photo, :price, :google_map, :facebook, :phone, :form,
       to: :data
 
     def data_folders
