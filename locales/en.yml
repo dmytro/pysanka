@@ -13,6 +13,7 @@ en:
     when: Date
     price: Price
     read_more: Read more
+    register: Registration
   footer:
     contacts: Contact us
     email: Email

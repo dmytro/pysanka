@@ -13,7 +13,7 @@ ja:
     when: 時間
     price: 金額
     read_more: 続き
-
+    register: 登録
   footer:
     contacts: コンタクト
     email: E-mail

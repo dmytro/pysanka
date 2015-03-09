@@ -13,7 +13,7 @@ uk:
     when: Час
     price: Вартість
     read_more: Детальніше
-
+    register: Реєстрація
   footer:
     contacts: Наші контакти
     email: Електронна пошта

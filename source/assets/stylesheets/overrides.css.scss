@@ -278,7 +278,14 @@
         color: #ffffff !important;
         font-weight: bold;
     }
+    &.btn-alter-op-2 {
+        background-color:  $btn-alt2-color-op2 !important;
+        &:hover {
+            background-color:  $btn-alt2-color !important;
+        }
+    }
 }
+
 
 .btn-rounded {
     border-radius: 2em;

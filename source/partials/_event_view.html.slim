@@ -69,5 +69,6 @@
             = partial :event_slideshow, locals: {event: event}
 
       - else
-        a.btn.btn-rounded.btn-alter-op.btn-raised#go_current_event href="#{ events_current.url}"
-          = t "events.read_more"
+        a.btn.btn-rounded.btn-alter-op.btn-alter-op-2.btn-raised#go_current_event href="#{ events_current.url}"
+          i.fa.fa-book.fa-lg>
+          =< t "events.register"
