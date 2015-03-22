@@ -1,6 +1,12 @@
+- full_page = locals[:full_page]
+
 .large-image-background.large-image-event
   .section#eventview
     .container
+      - if full_page
+        .row
+          - if event.has_images?
+            = partial "events/slideshow", locals: {event: event}
       .row
         .text.well.col-md-6
           - unless locals[:no_title]
@@ -30,7 +36,7 @@
                 / span.small= t "events.price"
                 =< l event.price
 
-            - if locals[:full_page]
+            - if full_page
 
               - if event.facebook
                 - Array(event.facebook).flatten.each do |fb|
@@ -52,7 +58,7 @@
 
         .col-md-6.hidden-sm.hidden-xs.display-img[style="background-image: url(#{image_path my_image_path})"]
 
-      - if locals[:full_page]
+      - if full_page
 
         /---------------------- Google map ----------------------
         .row
@@ -64,8 +70,6 @@
           - if event.form
             = partial "events/form", locals: {event: event }
           / ---------------------- Slides ----------------------
-          - if event.has_images?
-            = partial "events/slideshow", locals: {event: event}
 
       - else
         a.btn.btn-rounded.btn-alter-op.btn-alter-op-2.btn-raised#go_current_event href="#{ events_current.url}"
