@@ -1,0 +1,39 @@
+- unless locals[:no_title]
+  h1= l event.title
+  - if event.subtitle
+    h2= l event.subtitle
+    hr
+=l event.description, split: true
+
+hr
+ul
+  li
+    i.fa.fa-home.fa-2x>
+    / span.small= t "events.where"
+    =< l event.address
+
+  li
+    i.fa.fa-clock-o.fa-2x>
+    / span.small= t "events.when"
+    =< l event.date
+    | ,
+    =< l event.time
+
+  - if event.price
+    li
+      i.fa.fa-yen.fa-2x>
+      / span.small= t "events.price"
+      =< l event.price
+  - if full_page
+
+    - if event.facebook
+      - Array(event.facebook).flatten.each do |fb|
+        li
+          i.fa.fa-facebook.fa-2x>
+          = link_to fb, fb
+
+    - if event.phone
+      - Array(l event.phone).flatten.each do |ph|
+        li
+          i.fa.fa-phone.fa-2x>
+          = ph

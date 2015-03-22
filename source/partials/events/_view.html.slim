@@ -9,48 +9,8 @@
             = partial "events/slideshow", locals: {event: event}
       .row
         .text.well.col-md-6
-          - unless locals[:no_title]
-            h1= l event.title
-            - if event.subtitle
-              h2= l event.subtitle
-              hr
-          =l event.description, split: true
+          = partial "events/details", locals: {event: event, full_page: full_page }
 
-          hr
-          ul
-            li
-              i.fa.fa-home.fa-2x>
-              / span.small= t "events.where"
-              =< l event.address
-
-            li
-              i.fa.fa-clock-o.fa-2x>
-              / span.small= t "events.when"
-              =< l event.date
-              | ,
-              =< l event.time
-
-            - if event.price
-              li
-                i.fa.fa-yen.fa-2x>
-                / span.small= t "events.price"
-                =< l event.price
-
-            - if full_page
-
-              - if event.facebook
-                - Array(event.facebook).flatten.each do |fb|
-                  li
-                    i.fa.fa-facebook.fa-2x>
-                    = link_to fb, fb
-
-              - if event.phone
-                - Array(l event.phone).flatten.each do |ph|
-                  li
-                    i.fa.fa-phone.fa-2x>
-                    = ph
-
-        /
         - my_image_path = if event.photos && event.title_photo
         - "events/#{event.dir}/#{event.title_photo}"
         - else
@@ -63,7 +23,7 @@
         /---------------------- Google map ----------------------
         .row
           - if event.google_map
-            .google_maps.well.col-sm-12.col-md-6
+            .well.col-sm-12.col-md-6.google-maps
               iframe[width="100%" height="300" frameborder="0" style="border:0"
                 src="#{event.google_map}"]
 

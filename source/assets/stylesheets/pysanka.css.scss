@@ -200,7 +200,7 @@ h1,h2,h3,h4,h5,h6 {
         padding: 2ex;
         z-index: 100;
         border: 10px solid white;
-        border-radius: 5px;
+        /* border-radius: 5px; */
 
         hr {
             border-top: 1px solid #ccc;
@@ -241,17 +241,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .google-maps {
-    position: relative;
-    padding-bottom: 75%; // This is the aspect ratio
-    height: 0;
-    overflow: hidden;
-    iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100% !important;
-        height: 100% !important;
-    }
+    padding: 10px !important;
 }
 
 #product-pagination {
@@ -266,11 +256,10 @@ h1,h2,h3,h4,h5,h6 {
 
 #thumbs {
     margin-top: 1ex;
-    background-color: rgba(200,200,200,.6);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+    background-color: rgba(255,255,255,.5);
     padding: 5px;
     z-index: 100;
-    border: 5px solid white;
-    border-radius: 5px;
     img {
         margin: {
             left: 1px;
