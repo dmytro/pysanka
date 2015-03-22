@@ -68,7 +68,7 @@
 
           / ---------------------- Slides ----------------------
           - if event.has_images?
-            = partial :event_slideshow, locals: {event: event}
+            = partial "events/slideshow", locals: {event: event}
 
       - else
         a.btn.btn-rounded.btn-alter-op.btn-alter-op-2.btn-raised#go_current_event href="#{ events_current.url}"

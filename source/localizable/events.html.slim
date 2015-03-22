@@ -16,4 +16,4 @@ layout: layout
         table.events-list
           tbody
             - events.values.reverse.each do |event|
-              = partial :events_list, locals: { event: event }
+              = partial "events/list", locals: { event: event }

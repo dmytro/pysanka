@@ -8,4 +8,4 @@
           a.btn.btn-default.btn-rounded[href="#{localized_href events_index}"]
             = t "events.see_all"
             i.fa.fa-arrow-right.fa-lg<
-= partial :event_view, locals: { event: event }
+= partial "events/view", locals: { event: event }
