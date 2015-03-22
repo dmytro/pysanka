@@ -349,6 +349,14 @@ h1,h2,h3,h4,h5,h6 {
         }
     }
 }
+@mixin backdrop-gradient($color, $color2) {
+    background-color: $color;
+    background-image:
+    radial-gradient(
+            ellipse at 40% 20%,
+            $color, $color2
+        );
+}
 
 #eventview {
     ul {
@@ -365,8 +373,29 @@ h1,h2,h3,h4,h5,h6 {
             }
         }
     }
+    // USe class .maybe-closed and event data to greyout registration form.
+    .really-closed:after {
+        position:absolute;
+        content: "\A登録は閉じた。\A\ARegistration \A Closed.\a\aРеєстрація \A закрита.";
+        white-space: pre;
+        padding: 20%;
+        font-size: 3em;
+        font-weight: bold;
+        text-align: center;
+        color: rgba(255,0,0,0.8);
+        vertical-align: middle;
+        overflow: hidden;
+        text-overflow: clip;
 
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.5);
+        @include backdrop-gradient(rgba(64, 64, 64, 0.2), rgba(0,0,0,0.9))
+    }
 }
+
 /* @media (min-width: 768px) { */
 /* @media (max-width: 500px){ */
 /* @media (max-width: 768px){ */

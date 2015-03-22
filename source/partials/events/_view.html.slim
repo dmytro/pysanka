@@ -62,10 +62,7 @@
                 src="#{event.google_map}"]
 
           - if event.form
-            .google_maps.well.col-sm-12.col-md-5.col-md-offset-1
-              iframe[width="100%" height="630" frameborder="0" style="border:0; overflow-x: hidden;"
-                src="#{event.form}"]
-
+            = partial "events/form", locals: {event: event }
           / ---------------------- Slides ----------------------
           - if event.has_images?
             = partial "events/slideshow", locals: {event: event}

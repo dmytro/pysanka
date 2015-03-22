@@ -11,6 +11,7 @@
 //= require ripples.min
 //= require jquery.scrollupformenu
 //= require ekko-lightbox-min
+//= require close_registration
 
 $(document).ready(function() {
 
