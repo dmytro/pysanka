@@ -40,6 +40,17 @@ end
 # Localization helpers
 # --------------------------------------------
 helpers do
+
+  # Print content tag only if text present
+  def tag_if(text, tag, alternative_text=nil)
+    if text.blank?
+      content_tag(tag, alternative_text) if alternative_text
+    else
+      content_tag(tag, text)
+    end
+
+  end
+
   def current_language
     data.languages[I18n.locale]
   end

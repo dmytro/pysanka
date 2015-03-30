@@ -7,9 +7,8 @@ layout: layout
   .container
     .row
       .col-sm-12
-        p &nbsp;
-        h1= l item.title
-        p &nbsp;
+        = tag_if(l(item.title),:h1,t("products.pysanky"))
+
 .section
   .container
     .row
@@ -32,15 +31,15 @@ layout: layout
               = image_tag item.images.first.url, class: "product-img"
 
       .portfolio-item-description.col-sm-6
-        h3= l item.title
-        ul
-          li
-            = l item.subtitle
-          li
-            = l item.summary
-          - if item.description
-            li
-              = l item.description
+        .row
+          = partial :paginate, locals: { items: Showcase::Items.items, current: item, showitems: 5}
+        .row
+          = tag_if l(item.title), "h3"
+          ul
+            = tag_if l(item.subtitle), :li
+            = tag_if l(item.summary), :li
+            = tag_if l(item.description), :li
+
       a.btn.btn-micro.btn-raised.btn-theme[href="javascript:history.back()"]
         =t :back
 .section
