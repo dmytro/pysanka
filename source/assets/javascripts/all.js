@@ -101,9 +101,6 @@ $(document).ready(function() {
     }
     hideMenu();
 
-    var bodyheight = $(window).height();
-    $("#sequence").height(bodyheight);
-
     // To TOP button
     //
     $("#toTop").css("display", "none");
@@ -124,9 +121,7 @@ $(document).ready(function() {
 
 
     $(window).resize(function() {
-        var bodyheight = $(window).height();
-        $("#sequence").height(bodyheight);
-        setTopDiv();
+        // setTopDiv();
         setCTAButton();
         hideMenu();
     });
