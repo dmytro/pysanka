@@ -121,7 +121,7 @@ $(document).ready(function() {
 
 
     $(window).resize(function() {
-        // setTopDiv();
+        setTopDiv();
         setCTAButton();
         hideMenu();
     });
