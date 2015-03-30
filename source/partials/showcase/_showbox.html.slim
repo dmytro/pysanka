@@ -11,6 +11,6 @@
           li= truncate(l(item.subtitle), length: 50)
         -if item.summary
           li= truncate(l(item.summary), length: 120)
-        - if item.url
-          li.read-more
-            a.btn.btn-theme[href="#{localized_href item.url}"]= t :read_more
+      - if item.url
+        .read-more
+          a.btn.btn-theme[href="#{localized_href item.url}"]= t :read_more
