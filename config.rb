@@ -3,7 +3,7 @@ require 'slim'
 Slim::Engine.disable_option_validator!
 
 #$. << "./lib"
-require "#{File.dirname(__FILE__)}/lib/showcase"
+require "#{File.dirname(__FILE__)}/lib/products"
 require "#{File.dirname(__FILE__)}/lib/data_folders"
 
 I18n.enforce_available_locales = true
@@ -98,12 +98,12 @@ helpers do
 end
 
 helpers do
-  def showcase_item_link(item)
+  def products_item_link(item)
     "<a href='#{localized_href item.url}'>#{item.basename.to_i}</a>"
   end
 end
 
-activate :showcase
+activate :products
 activate :data_folders, namespace: 'events'
 
 # --------------------------------------------
@@ -122,10 +122,10 @@ activate :data_folders, namespace: 'events'
   end
 
   # --------------------------------------------
-  # Showcase is Pysanka products lister
+  # Products is Pysanka products lister
   # --------------------------------------------
-  Showcase::Items.list.each do |dir|
-    proxy "#{pref}/item_#{dir}.html", "product.html", locals: { item: ::Showcase::Item.new(dir)}, ignore: true do
+  Products::Items.list.each do |dir|
+    proxy "#{pref}/item_#{dir}.html", "product.html", locals: { item: ::Products::Item.new(dir)}, ignore: true do
       ::I18n.locale = lang
     end
   end

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-class Showcase < Middleman::Extension
+class Products < Middleman::Extension
   # All showsace items array
   class Items
 
     attr_reader :path
     def initialize
-      @path = Showcase::PATH
+      @path = Products::PATH
     end
     class << self
 
@@ -29,7 +29,7 @@ class Showcase < Middleman::Extension
       alias :list :basenames
 
       def items
-        basenames.map { |dir| Showcase::Item.new(dir) }
+        basenames.map { |dir| Products::Item.new(dir) }
       end
     end
   end

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-class Showcase < Middleman::Extension
+class Products < Middleman::Extension
   class Item
 
     attr_reader :path, :data, :dir
 
     def initialize(dir)
       @dir = dir
-      @path = "#{Showcase::PATH}/#{dir}"
+      @path = "#{Products::PATH}/#{dir}"
     end
 
     alias :basename :dir
@@ -37,7 +37,7 @@ class Showcase < Middleman::Extension
 
 
     def asset_path
-      @asset_path ||= path.gsub(Showcase::ASSETS,"")
+      @asset_path ||= path.gsub(Products::ASSETS,"")
     end
 
     def images

@@ -30,7 +30,7 @@ layout: layout
 
       .portfolio-item-description.col-sm-6
         .row
-          = partial :paginate, locals: { items: Showcase::Items.items, current: item, showitems: 5}
+          = partial :paginate, locals: { items: Products::Items.items, current: item, showitems: 5}
         .row
           = tag_if l(item.title), "h3"
           ul
@@ -45,4 +45,4 @@ layout: layout
     h3= t :related_projects
     .row
       - item.related.each do |related|
-        = partial "showcase/showbox", locals: { item: related }
+        = partial "products/index", locals: { item: related }

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-class Showcase < Middleman::Extension
+class Products < Middleman::Extension
   class Image
     def initialize(dir,file)
       @dir = File.basename dir
@@ -8,11 +8,11 @@ class Showcase < Middleman::Extension
     attr_reader :file, :dir
 
     def path
-      File.expand_path("#{Showcase::PATH}/#{dir}/#{file}")
+      File.expand_path("#{Products::PATH}/#{dir}/#{file}")
     end
 
     def url
-      "#{Showcase::ASSETS_URL}/#{dir}/#{file}"
+      "#{Products::ASSETS_URL}/#{dir}/#{file}"
     end
   end
 end

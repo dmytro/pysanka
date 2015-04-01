@@ -15,8 +15,8 @@
   .container
     - if locals[:full]
       .row
-        = partial :paginate, locals: { items: Showcase::Items.items, current: Showcase::Items.items.first, showitems: 20}
+        = partial :paginate, locals: { items: Products::Items.items, current: Products::Items.items.first, showitems: 20}
     .row
       - number = locals[:full] ? 24 : 6
-      - showcase(number).each do |item|
-        = partial "showcase/showbox", locals: { item: item }
+      - products(number).each do |item|
+        = partial "products/index", locals: { item: item }
