@@ -10,10 +10,10 @@ layout: layout
         = tag_if(l(item.title),:h1,t("products.pysanky"))
 
 .section
-  .container
+  .container#image
     .row
       .col-sm-6
-        .portfolio-item.full-size
+        .portfolio-item.full-size.shadow-z-5
           .portfolio-image
             -if item.images.count > 1
               #product-sequence
@@ -30,16 +30,12 @@ layout: layout
 
       .portfolio-item-description.col-sm-6
         .row
-          = partial :paginate, locals: { items: Products::Items.items, current: item, showitems: 5}
-        .row
-          = tag_if l(item.title), "h3"
-          ul
-            = tag_if l(item.subtitle), :li
-            = tag_if l(item.summary), :li
-            = tag_if l(item.description), :li
+          = partial :paginate, locals: { items: Products::Items.items, current: item }
+          - if item.data_present?
+            = partial "products/data", locals: {item: item}
 
-      a.btn.btn-micro.btn-raised.btn-theme[href="javascript:history.back()"]
-        =t :back
+        a.btn.btn-micro.btn-raised.btn-theme[href="javascript:history.back()"]
+          =t :back
 .section
   .container
     h3= t :related_projects

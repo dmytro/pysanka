@@ -19,6 +19,10 @@ class Products < Middleman::Extension
     delegate :title, :subtitle, :summary, :description, :link_to,
       to: :data, allow_nil: true
 
+    def data_present?
+      !title.blank? || !subtitle.blank? || !description.blank? || !summary.blank?
+    end
+
     def data_file
       @data_file ||= "#{path}/data.yml"
     end
