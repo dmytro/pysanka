@@ -1,8 +1,7 @@
-.row
-  .col-sm-11.col-md-offset-1.well
-      = tag_if l(item.title), "h3"
-      .container
-        ul
-          = tag_if l(item.subtitle), :li
-          = tag_if l(item.summary), :li
-          = tag_if l(item.description), :li
+.well.shadow-z-5
+    = tag_if l(item.title), "h3"
+    .container
+      ul
+        = tag_if l(item.subtitle), :li
+        = tag_if l(item.summary), :li
+        = tag_if l(item.description), :li
