@@ -1,0 +1,5 @@
+#pysanka.section
+  h3= t :related_projects
+  .row
+    - item.related.each do |related|
+      = partial "products/index", locals: { item: related }

@@ -33,12 +33,11 @@ layout: layout
           = partial :paginate, locals: { items: Products::Items.items, current: item }
           - if item.data_present?
             = partial "products/data", locals: {item: item}
+          - else
+            = partial "products/related", locals: {item: item}
 
         a.btn.btn-micro.btn-raised.btn-theme[href="javascript:history.back()"]
           =t :back
 .section
   .container
-    h3= t :related_projects
-    .row
-      - item.related.each do |related|
-        = partial "products/index", locals: { item: related }
+    = partial "products/related", locals: {item: item}
