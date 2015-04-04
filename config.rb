@@ -125,7 +125,8 @@ activate :data_folders, namespace: 'events'
   # Products is Pysanka products lister
   # --------------------------------------------
   Products::Items.list.each do |dir|
-    proxy "#{pref}/item_#{dir}.html", "product.html", locals: { item: ::Products::Item.new(dir)}, ignore: true do
+    item = ::Products::Item.new(dir)
+    proxy "#{pref}/#{item.url}.html", "product.html", locals: { item: item}, ignore: true do
       ::I18n.locale = lang
     end
   end

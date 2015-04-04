@@ -23,6 +23,10 @@ class Products < Middleman::Extension
       @data_file ||= "#{path}/data.yml"
     end
 
+    def number
+      dir.to_i
+    end
+
     def data
       @data ||= OpenStruct.new(
         Items.data.merge(
@@ -32,7 +36,7 @@ class Products < Middleman::Extension
     end
 
     def url
-      @url ||= (link_to || "item_#{dir}")
+      @url ||= (link_to || "item_#{number}")
     end
 
 

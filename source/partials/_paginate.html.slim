@@ -1,22 +1,4 @@
-- current_index = items.map(&:dir).find_index current.dir
+javascript:
+  var pagination = {'total' : #{items.count}};
 
-- b1 = [current_index-showitems, 0].max
-- b2 = [current_index-1,0].max
-
-- a1 = current_index+1
-- a2 = [current_index+showitems, items.count].min
-
-ul#product-pagination.pagination
-
-  li= link_to "&laquo;", items.first.url
-
-  - unless current_index == 0
-    - items[b1..b2].each do |item|
-      li= products_item_link item
-
-  li.active
-    a= current.basename.to_i
-
-  - items[a1..a2].each do |item|
-    li= products_item_link item
-  li= link_to "&raquo;", items.last.url
+ul.pagination

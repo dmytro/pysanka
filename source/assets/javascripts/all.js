@@ -1,4 +1,4 @@
-//= require jquery-1.9.1.min
+//= require jquery-1.11.2.min
 //= require leaflet-0.5.1
 //= require bootstrap.min
 //= require jquery.fitvids
@@ -12,6 +12,7 @@
 //= require jquery.scrollupformenu
 //= require ekko-lightbox-min
 //= require close_registration
+//= require jquery.twbsPagination.min
 
 $(document).ready(function() {
 
@@ -25,6 +26,17 @@ $(document).ready(function() {
             right_arrow_class: ".fa .fa-arrow-right"
         }
         );
+    });
+
+    $('.pagination').twbsPagination({
+        totalPages: pagination['total'],
+        // 34 is a width of pagination button
+        visiblePages: $('.pagination').first().parent().width() / 34 - 4,
+        href: 'item_{{number}}#image',
+        prev: "<",
+        next: ">",
+        first: "<<",
+        last: ">>",
     });
 
     var productOptions = {
