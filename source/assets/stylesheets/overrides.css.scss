@@ -3,6 +3,58 @@
 .mainmenu-wrapper.well {
     z-index: 10000;
 }
+
+article {
+    p {
+        font-size: 1.2em;
+        text-align: justify;
+    }
+
+}
+
+.card {
+    margin-bottom: 2em;
+    &.card-light-shadow {
+        box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.33), 8px 8px 15px rgba(255, 255, 255, 0.15), ;
+    }
+    .gallery-text-box {
+        height: 15%;
+        width: 100%;
+        .container {
+            min-width: inherit;
+            width: inherit;
+        }
+    }
+    table {
+        &.gallery {
+            width: 100%;
+            margin-bottom: 10%;
+            border: 0;
+            height: 85%;
+            tr.gallery-row {
+                height: 100%;
+                &:first-child td{
+                    border-top: 0;
+                    border-left: 0;
+                }
+                &:last-child td{
+                    border-top: 0;
+                    border-right: 0;
+                }
+                td.gallery-cell {
+                    border-left: 1px solid white ;
+                    height: 100%;
+                    background-size: cover;
+                    background-position: center top;
+                    background-repeat: no-repeat;
+
+                }
+            }
+
+        }
+    }
+}
+
 /*--------------------------------------------------------------------------
 +	Portfolio Style
 --------------------------------------------------------------------------*/

@@ -21,6 +21,24 @@ ignore '*.less'
 # don't precompile assets when middleman startup, but only when it's requested.
 #set :debug_assets, true
 
+activate :blog do |blog|
+  blog.layout = "post"
+  blog.tag_template = "tag.html"
+  blog.calendar_template = "calendar.html"
+
+  # Enable pagination
+  blog.paginate = true
+  blog.per_page = 10
+  blog.page_link = "page/{num}"
+end
+
+
+helpers do
+  def photos(pictures, comment="")
+    partial :photos, locals: { pictures: Array(pictures), text: comment}
+  end
+end
+
 activate :livereload
 
 activate :i18n, langs: [:ja, :en, :uk]
@@ -29,8 +47,16 @@ activate :directory_indexes
 
 page '/', layout: 'layout'
 
-set :markdown, :tables => true, :autolink => true, :gh_blockcode => true, :fenced_code_blocks => true, :with_toc_data => true
-set :markdown_engine, :redcarpet
+set :markdown_engine, :kramdown
+set :markdown, :layout_engine => :slim,
+  :tables => true,
+  :autolink => true,
+  footnotes: true,
+  :smartypants => true,
+  smart_quotes: [180, 180, 8222, 8220]
+
+# set :markdown, :tables => true, :autolink => true, :gh_blockcode => true, :fenced_code_blocks => true, :with_toc_data => true
+# set :markdown_engine, :redcarpet
 
 configure :development do
   activate :relative_assets

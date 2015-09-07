@@ -1,0 +1,27 @@
+---
+layout: simple
+pageable: true
+per_page: 10
+intro:
+  image: backgrounds/koinobori.jpg
+  filters:
+    - vignette-90
+    - text-shadow
+---
+- @title = capture
+  h1 #{t("tags.pages_tagged")} &laquo;#{tagname}&raquo;
+
+- @next_page = next_page
+- @prev_page = prev_page
+- @subtitle = capture
+  - if paginate && num_pages > 1
+    h2
+      = partial :page_prev
+      = t "paging.page"
+      =<> page_number
+      = t "paging.of"
+      =<> num_pages
+      = partial :page_next
+
+ul.list-unstyled
+  = partial :list_articles, locals: { articles: page_articles}

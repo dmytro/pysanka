@@ -1,0 +1,9 @@
+= wrap_layout :layout do
+  / = partial :intro, locals: {background: post_top_image }
+  article
+    .row
+      .col-md-6.col-md-offset-2
+        = yield
+
+  / = partial :disqus
+  / = partial :post_footer

@@ -1,0 +1,35 @@
+---
+pageable: true
+layout: simple
+title: Архів статей
+intro:
+  image: backgrounds/calendar.jpg
+---
+- date = case page_type
+- when 'day'; then Date.new(year, month, day).strftime('%b %e %Y')
+- when 'month'; then Date.new(year, month, 1).strftime('%b %Y')
+- when 'year'; then t("calendar.year", year: year)
+
+- @title = "#{data.page.title} #{t "calendar.for"} #{date.to_s}"
+- @next_page = next_page
+- @prev_page = prev_page
+
+- if paginate && num_pages > 1
+  h2
+    = partial :page_prev
+    = t "paging.page"
+    =<> page_number
+    = t "paging.of"
+    =<> num_pages
+    = partial :page_next
+
+ul.list-unstyled
+  - page_articles.each_with_index do |article, i|
+    li
+      = partial :article_link, locals: { article: article }
+
+#year-nav.year-nav-index
+  h2 Інші роки
+  h3
+    - blog.articles.map {|a| a.date.year }.uniq.each do |year|
+      = link_to year.to_s, "/#{year}.html"
