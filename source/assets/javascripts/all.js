@@ -28,7 +28,8 @@ $(document).ready(function() {
         );
     });
 
-    $('.pagination').twbsPagination({
+    if ( typeof pagination !== 'undefined' ) {
+        $('.pagination').twbsPagination({
         totalPages: pagination['total'],
         // 34 is a width of pagination button
         visiblePages: $('.pagination').first().parent().width() / 34 - 4,
@@ -37,7 +38,8 @@ $(document).ready(function() {
         next: ">",
         first: "<<",
         last: ">>",
-    });
+        });
+    };
 
     var productOptions = {
         nextButton: false,
