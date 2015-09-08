@@ -119,7 +119,7 @@ helpers do
     end
   end
 
-  def locale_prefix(locale=I18n.locale)
+  def locale_prefix(locale=current_language.locale)
     if locale == I18n.default_locale
       "/"
     else
