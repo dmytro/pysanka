@@ -33,9 +33,19 @@ activate :blog do |blog|
 end
 
 
+#
+# Blog helpers
+#
 helpers do
   def photos(pictures, comment="")
     partial :photos, locals: { pictures: Array(pictures), text: comment}
+  end
+
+  def category_articles(category)
+    blog.articles.select {
+      |x| x.data.category == category && \
+        x.data.language == current_language.locale
+    }
   end
 end
 
@@ -78,7 +88,7 @@ helpers do
   end
 
   def current_language
-    data.languages[I18n.locale]
+     data.languages[current_page.data.language || I18n.locale]
   end
 
   def available_locales_as_regex
@@ -101,7 +111,7 @@ helpers do
 
   # Translate strings that are not part of /locale/ directory.
   def l(key, split: false)
-    string = ((key.is_a?(Hash) ? key[I18n.locale.to_s] : key) || "")
+    string = ((key.is_a?(Hash) ? key[current_language.locale] : key) || "")
     if split
       string.gsub(/\n+/, "<p>")
     else

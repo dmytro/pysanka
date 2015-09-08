@@ -1,0 +1,12 @@
+- articles = category_articles(category)
+
+- unless articles.empty?
+  .section
+    .container
+      h1= t "products.#{category}.articles"
+      ul
+        - articles.each do |article|
+          li
+            = link_to article.url do
+              h4= article.data.title
+              | (#{article.data.author})

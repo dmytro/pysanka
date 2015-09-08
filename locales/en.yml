@@ -6,6 +6,10 @@ en:
   products:
     see_all: All products
     pysanky: Pysankas
+    pysanka:
+      title: Pysanka
+      articles: Pysanka articles
+      products: "Pysanka's"
   events:
     title: Events
     see_all: Other events

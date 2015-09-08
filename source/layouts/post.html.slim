@@ -1,9 +1,20 @@
 = wrap_layout :layout do
   / = partial :intro, locals: {background: post_top_image }
+  .section.section-breadcrumbs.section-breadcrumbs-main.section-top
+    br
+
+    .container
+      .row
+        .col-sm-10.col-sm-offset-1
+
+          h2= current_article.data.title
+          h4.text-right= current_article.data.author
   article
     .row
-      .col-md-6.col-md-offset-2
-        = yield
+      .col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1
+        .well
+
+          = yield
 
   / = partial :disqus
   / = partial :post_footer

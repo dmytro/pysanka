@@ -6,6 +6,11 @@ ja:
   products:
     see_all: すべての製品
     pysanky: プィサンカ
+
+    pysanka:
+      title: プィサンカ
+      articles:  作文
+      products: 品物
   events:
     title: イベント
     see_all: その他のイベント

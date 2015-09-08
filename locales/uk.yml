@@ -6,6 +6,11 @@ uk:
   products:
     see_all: Всі вироби
     pysanky: Писанки
+
+    pysanka:
+      title: Писанки
+      articles:  Статті з писанкарства
+      products: Вироби
   events:
     title: Події
     see_all: Минулі події

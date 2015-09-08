@@ -3,16 +3,21 @@
     .container
       .row
         .col-md-12
-          a[name="pysanka" id="pysanka"]
-          h1 = t "products.pysanky"
+          a[name=category id=category]
+
+          h1 = t "products.#{category}.title"
           - if locals[:full]
             p &nbsp;
           - else
             a.btn.btn-default.btn-rounded[href="#{localized_href "/products"}"]
               = t "products.see_all"
               i.fa.fa-arrow-right.fa-lg<
+
+= partial "products/list_articles", locals: { category: category }
+
 .section
   .container
+    h1= t "products.#{category}.products"
     - if locals[:full]
       .row
         = partial :paginate, locals: { items: Products::Items.items, current: Products::Items.items.first, showitems: 20}
