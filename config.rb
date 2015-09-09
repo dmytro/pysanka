@@ -26,6 +26,9 @@ activate :blog do |blog|
   blog.tag_template = "tag.html"
   blog.calendar_template = "calendar.html"
 
+  blog.sources = "/{year}-{month}-{day}-{title}.{language}.html"
+  blog.permalink = "/{language}/{year}/{month}/{day}/{title}.html"
+
   # Enable pagination
   blog.paginate = true
   blog.per_page = 10
@@ -101,7 +104,7 @@ helpers do
   end
 
   def current_with_locale(locale)
-    if locale == I18n.default_locale.to_s
+    if locale == I18n.default_locale.to_s && current_page.data.layout != 'post'
       current_without_locale
     else
       "/#{locale}/#{current_without_locale}"
@@ -120,7 +123,7 @@ helpers do
   end
 
   def locale_prefix(locale=current_language.locale)
-    if locale == I18n.default_locale
+    if locale == I18n.default_locale.to_s
       "/"
     else
       "/#{locale.to_s}"

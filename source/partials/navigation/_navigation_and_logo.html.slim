@@ -3,9 +3,8 @@
     nav.navbar.navbar-default
       .container-fluid
 
-        - unless current_page.data.layout == 'post'
-          ul#language-small
-            = partial "navigation/language_select"
+        ul#language-small
+          = partial "navigation/language_select"
 
         .navbar-header
           button.navbar-toggle.collapsed[type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"]
@@ -23,6 +22,5 @@
             - data.navigation.each do |link|
               = partial "navigation/menu_link", locals: { link: link }
 
-          - unless current_page.data.layout == 'post'
-            ul.nav.navbar-nav.navbar-right#language-large
-              = partial "navigation/language_select"
+          ul.nav.navbar-nav.navbar-right#language-large
+            = partial "navigation/language_select"
