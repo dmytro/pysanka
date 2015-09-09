@@ -37,8 +37,8 @@ end
 # Blog helpers
 #
 helpers do
-  def photos(pictures, comment="")
-    partial :photos, locals: { pictures: Array(pictures), text: comment}
+  def photo_card(pictures, comment="")
+    partial "layout/photos", locals: { pictures: Array(pictures), text: comment}
   end
 
   def category_articles(category)
