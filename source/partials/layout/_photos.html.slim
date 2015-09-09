@@ -5,8 +5,8 @@
     tr.gallery-row
       - pictures.each do |picture|
         - path = image_path("./#{current_article.data.image_base}/#{picture}")
-        td.gallery-cell style="position: relative; padding-bottom: 75%; background-image: url(#{path}); "
-          = link_to "", path, class: "fancybox", rel: gallery_id
+        td.gallery-cell style="position: relative; padding-bottom: 50%; background-image: url(#{path}); "
+          = link_to "", path, "data-gallery" => gallery_id, "data-toggle" => "lightbox", class: :fancybox
 
   .gallery-text-box
     .container
