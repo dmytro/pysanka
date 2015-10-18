@@ -12,7 +12,6 @@ gem "slim"
 # gem 'compass', '~>1.x.x'
 gem 'rmagick', '~>2.3'
 
-gem 'therubyracer'
 # gem "bootstrap-sass", :require => false
 
 
@@ -23,5 +22,5 @@ gem "redcarpet"
 gem 'font-awesome-middleman'
 
 # speed up minifying processes
-gem 'therubyracer'
+# gem 'therubyracer'
 gem 'oj'
