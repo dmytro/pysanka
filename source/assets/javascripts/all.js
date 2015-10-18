@@ -28,16 +28,18 @@ $(document).ready(function() {
         );
     });
 
-    $('.pagination').twbsPagination({
-        totalPages: pagination['total'],
-        // 34 is a width of pagination button
-        visiblePages: $('.pagination').first().parent().width() / 34 - 4,
-        href: 'item_{{number}}#image',
-        prev: "<",
-        next: ">",
-        first: "<<",
-        last: ">>",
-    });
+    if (typeof pagination != 'undefined') {
+        $('.pagination').twbsPagination({
+            totalPages: pagination['total'],
+            // 34 is a width of pagination button
+            visiblePages: $('.pagination').first().parent().width() / 34 - 4,
+            href: 'item_{{number}}#image',
+            prev: "<",
+            next: ">",
+            first: "<<",
+            last: ">>",
+        });
+    };
 
     var productOptions = {
         nextButton: false,
